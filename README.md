@@ -14,6 +14,10 @@ In this lab you work with the SharePoint Framework to communicate with external 
 - [Calling Azure AD Protected 3rd Party REST APIs](./Demos/02-aadhttpclient)
 - [Calling the Microsoft Graph](./Demos/03-msgraphclient)
 
+## Watch the Module - Video
+
+This module has been recorded and is available in the SharePoint Development YouTube channel: [SharePoint Framework Training - Developing with the SharePoint Framework: Leverage the Microsoft Graph & 3rd Party APIs](https://www.youtube.com/watch?v=0zVtDn0ckBM&list=PLR9nK3mnD-OV-RPXQ3Lco845qoEy7VJoc)
+
 ## Contributors
 
 |        Roles         |                        Author(s)                        |
