@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license.
+
 import * as React from 'react';
 import styles from './GraphPersona.module.scss';
 import { IGraphPersonaProps } from './IGraphPersonaProps';
@@ -26,6 +29,34 @@ export default class GraphPersona extends React.Component<IGraphPersonaProps, IG
     };
   }
 
+  public render(): React.ReactElement<IGraphPersonaProps> {
+    return (
+      <Persona primaryText={this.state.name}
+        secondaryText={this.state.email}
+        onRenderSecondaryText={this._renderMail}
+        tertiaryText={this.state.phone}
+        onRenderTertiaryText={this._renderPhone}
+        imageUrl={this.state.image}
+        size={PersonaSize.size100} />
+    );
+  }
+
+  private _renderMail = () => {
+    if (this.state.email) {
+      return <Link href={`mailto:${this.state.email}`}>{this.state.email}</Link>;
+    } else {
+      return <div />;
+    }
+  }
+  
+  private _renderPhone = () => {
+    if (this.state.phone) {
+      return <Link href={`tel:${this.state.phone}`}>{this.state.phone}</Link>;
+    } else {
+      return <div />;
+    }
+  }  
+
   public componentDidMount(): void {
     this.props.graphClient
       .api('me')
@@ -36,7 +67,7 @@ export default class GraphPersona extends React.Component<IGraphPersonaProps, IG
           phone: user.businessPhones[0]
         });
       });
-
+  
     this.props.graphClient
       .api('/me/photo/$value')
       .responseType('blob')
@@ -44,33 +75,5 @@ export default class GraphPersona extends React.Component<IGraphPersonaProps, IG
         const blobUrl = window.URL.createObjectURL(photoResponse);
         this.setState({ image: blobUrl });
       });
-  }
-
-  private _renderMail = () => {
-    if (this.state.email) {
-      return <Link href={`mailto:${this.state.email}`}>{this.state.email}</Link>;
-    } else {
-      return <div />;
-    }
-  }
-
-  private _renderPhone = () => {
-    if (this.state.phone) {
-      return <Link href={`tel:${this.state.phone}`}>{this.state.phone}</Link>;
-    } else {
-      return <div />;
-    }
-  }
-
-  public render(): React.ReactElement<IGraphPersonaProps> {
-    return (
-      <Persona primaryText={this.state.name}
-              secondaryText={this.state.email}
-              onRenderSecondaryText={this._renderMail}
-              tertiaryText={this.state.phone}
-              onRenderTertiaryText={this._renderPhone}
-              imageUrl={this.state.image}
-              size={PersonaSize.size100} />
-    );
-  }
+  }  
 }

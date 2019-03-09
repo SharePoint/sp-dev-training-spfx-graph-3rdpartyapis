@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license.
+
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
@@ -28,7 +31,7 @@ export default class GraphPersonaWebPart extends BaseClientSideWebPart<IGraphPer
           graphClient: client
         }
       );
-
+    
       ReactDom.render(element, this.domElement);
     });
   }
