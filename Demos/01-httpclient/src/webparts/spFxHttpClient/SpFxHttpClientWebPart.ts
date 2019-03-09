@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license.
+
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
@@ -19,7 +22,6 @@ export interface ISpFxHttpClientWebPartProps {
 
 export default class SpFxHttpClientWebPart extends BaseClientSideWebPart<ISpFxHttpClientWebPartProps> {
 
-
   public render(): void {
     if (!this.renderedOnce) {
       this._getApolloImage()
@@ -30,7 +32,7 @@ export default class SpFxHttpClientWebPart extends BaseClientSideWebPart<ISpFxHt
               apolloMissionImage: response.collection.items[0]
             }
           );
-
+  
           ReactDom.render(element, this.domElement);
         });
     }
@@ -38,7 +40,7 @@ export default class SpFxHttpClientWebPart extends BaseClientSideWebPart<ISpFxHt
 
   private _getApolloImage(): Promise<any> {
     return this.context.httpClient.get(
-      `https://images-api.nasa.gov/search?q=Apollo%204&media_type=image`, 
+      `https://images-api.nasa.gov/search?q=Apollo%204&media_type=image`,
       HttpClient.configurations.v1
     )
     .then((response: HttpClientResponse) => {
@@ -48,7 +50,7 @@ export default class SpFxHttpClientWebPart extends BaseClientSideWebPart<ISpFxHt
       return jsonResponse;
     }) as Promise<any>;
   }
-
+    
   protected onDispose(): void {
     ReactDom.unmountComponentAtNode(this.domElement);
   }
