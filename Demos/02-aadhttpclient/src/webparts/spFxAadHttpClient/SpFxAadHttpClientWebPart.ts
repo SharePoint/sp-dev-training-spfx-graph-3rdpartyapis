@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license.
+
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
@@ -29,10 +32,10 @@ export default class SpFxAadHttpClientWebPart extends BaseClientSideWebPart<ISpF
             {
               userItems: results
             }
-          );
+        );
 
-          ReactDom.render(element, this.domElement);
-        });
+        ReactDom.render(element, this.domElement);
+      });
     }
   }
 
@@ -41,7 +44,7 @@ export default class SpFxAadHttpClientWebPart extends BaseClientSideWebPart<ISpF
       this.context.aadHttpClientFactory
         .getClient('https://graph.microsoft.com')
         .then((aadClient: AadHttpClient) => {
-          const endpoint: string = 'https://graph.microsoft.com/v1.0/users?$top=10&$select=id,displayName,mail'
+          const endpoint: string = 'https://graph.microsoft.com/v1.0/users?$top=10&$select=id,displayName,mail';
           aadClient.get(endpoint, AadHttpClient.configurations.v1)
             .then((rawResponse: HttpClientResponse) => {
               return rawResponse.json();
@@ -51,7 +54,7 @@ export default class SpFxAadHttpClientWebPart extends BaseClientSideWebPart<ISpF
             });
         });
       });
-  }
+  }  
 
   protected onDispose(): void {
     ReactDom.unmountComponentAtNode(this.domElement);

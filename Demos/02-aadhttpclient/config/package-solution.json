@@ -1,12 +1,13 @@
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license.
+
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
     "name": "sp-fx-aad-http-client-client-side-solution",
-    "id": "0f93fe79-8d84-4b61-a13d-22f3cf7b6f00",
+    "id": "066ef972-8719-4d2b-b55d-3120d0848a4a",
     "version": "1.0.0.0",
     "includeClientSideAssets": true,
-    "isDomainIsolated": false,
-    "skipFeatureDeployment": false,
     "webApiPermissionRequests": [
       {
         "resource": "Microsoft Graph",
