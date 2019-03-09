@@ -126,7 +126,7 @@ In this exercise you will create a new SPFx project with a single client-side we
         ```
 
 1. Implement the web part logic to retrieve data from the remote service and set it on the public property for the React component:
-    1. Locate and open the **./src/webparts/spFxHttpClient/components/SpFxHttpClient.tsx** file.
+    1. Locate and open the **./src/webparts/spFxHttpClient/SpFxHttpClientWebPart.ts** file.
     1. Add the following `import` statement to the top of the file after the existing `import` statements:
 
         ```ts
