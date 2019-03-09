@@ -4,7 +4,7 @@ This module will introduce you to utilizing external APIs in your SharePoint Fra
 
 ## Lab - Leverage the Microsoft Graph & 3rd Party APIs
 
-In this lab you work with the SharePoint Framework to communicate with external APIs from the Microsoft Graph and third party REST APIs in your SharePoint Framewor project.
+In this lab you work with the SharePoint Framework to communicate with external APIs from the Microsoft Graph and third party REST APIs in your SharePoint Framework project.
 
 - [Lab manual](./Lab.md)
 
