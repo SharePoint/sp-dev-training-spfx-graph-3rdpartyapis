@@ -340,7 +340,7 @@ In this exercise you will create a new SPFx project with a single client-side we
             this.context.aadHttpClientFactory
               .getClient('https://graph.microsoft.com')
               .then((aadClient: AadHttpClient) => {
-                const endpoint: string = 'https://graph.microsoft.com/v1.0/users?$top=10&$select=id,displayName,mail'
+                const endpoint: string = 'https://graph.microsoft.com/v1.0/users?$top=10&$select=id,displayName,mail';
                 aadClient.get(endpoint, AadHttpClient.configurations.v1)
                   .then((rawResponse: HttpClientResponse) => {
                     return rawResponse.json();
@@ -352,6 +352,28 @@ In this exercise you will create a new SPFx project with a single client-side we
             });
         }
         ```
+
+    1. Update the contents of the `render()` method to the following code:
+
+        ```ts
+        public render(): void {
+          if (!this.renderedOnce) {
+            this._getUsers()
+              .then((results: IUserItem[]) => {
+                const element: React.ReactElement<ISpFxAadHttpClientProps > = React.createElement(
+                  SpFxAadHttpClient,
+                  {
+                    userItems: results
+                  }
+              );
+
+              ReactDom.render(element, this.domElement);
+            });
+          }
+        }
+        ```
+
+        In this code, we have added a check to see if the web part has already been rendered on the page. If not, it calls the `_getUsers()` method previously added.        
 
 ### Update the Package Permission Requests
 
@@ -366,7 +388,7 @@ The last step before testing is to notify SharePoint that upon deployment to pro
         "resource": "Microsoft Graph",
         "scope": "User.ReadBasic.All"
       }
-    ],
+    ]
     ```
 
 ### Test the Web Part
@@ -423,7 +445,7 @@ The last step before testing is to notify SharePoint that upon deployment to pro
 
 1. Test the web part:
 
-    >NOTE: The SharePoint Framework includes a locally hosted & SharePoint Online hosted workbench for testing custom solutions. However, the workbench will not work the first time when testing solutions that utilize the Microsoft due to nuances with how the workbench operates and authentication requirements. Therefore, the first time you test a Microsoft Graph enabled SPFx solution, you will need to test them in a real modern page.
+    >NOTE: The SharePoint Framework includes a locally hosted & SharePoint Online hosted workbench for testing custom solutions. However, the workbench will not work the first time when testing solutions that utilize the Microsoft Graph due to nuances with how the workbench operates and authentication requirements. Therefore, the first time you test a Microsoft Graph enabled SPFx solution, you will need to test them in a real modern page.
     >
     >Once this has been done and your browser has been cookied by the Azure AD authentication process, you can leverage local webserver and SharePoint Online-hosted workbench for testing the solution.
 
@@ -452,7 +474,7 @@ The last step before testing is to notify SharePoint that upon deployment to pro
 
         1. When the page loads, notice after a brief delay, it will display a list of users:
 
-            ![Screenshot of the web part running in a modern SharePoint page](./aad-addpackage-07.png)
+            ![Screenshot of the web part running in a modern SharePoint page](./Images/aad-addpackage-07.png)
 
 1. Stop the local web server by pressing <kbd>CTRL</kbd>+<kbd>C</kbd> in the console/terminal window.
 
