@@ -571,7 +571,7 @@ Update the default web part to pass into the React component an instance of the 
 ### Implement the GraphPersona React Component
 
 1. After updating the public signature of the **GraphPersona** component, the public property interface of the component needs to be updated to accept the Microsoft Graph client:
-    1. Open the **src/webparts/graphPersona/components/IGraphPersonaProps.tsx**
+    1. Open the **src/webparts/graphPersona/components/IGraphPersonaProps.ts**
     1. Replace the contents with the following code to change the public signature of the component:
 
         ```ts
@@ -716,7 +716,7 @@ The last step before testing is to notify SharePoint that upon deployment to pro
         "resource": "Microsoft Graph",
         "scope": "User.ReadBasic.All"
       }
-    ],
+    ]
     ```
 
 ### Test the Persona Solution
@@ -755,6 +755,9 @@ The last step before testing is to notify SharePoint that upon deployment to pro
         ![Screenshot of trusting a SharePoint package](./Images/tenant-app-catalog-02.png)
 
 1. Approve the API permission request:
+
+    >Note: If you completed Exercise 2 in this module you have already approved the permission request for **User.ReadBasic.All** so you may skip this step and move to testing the web part.
+
     1. Navigate to the SharePoint Admin Portal located at **https://{{REPLACE_WITH_YOUR_TENANTID}}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx**, replacing the domain with your SharePoint Online's administration tenant URL.
 
         >Note: At the time of writing, this feature is only in the SharePoint Online preview portal.
