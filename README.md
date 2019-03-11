@@ -23,12 +23,14 @@ This module has been recorded and is available in the SharePoint Development You
 |        Roles         |                        Author(s)                        |
 | -------------------- | ------------------------------------------------------- |
 | Lab Manuals / Slides | Andrew Connell (Microsoft MVP, Voitanos) @andrewconnell |
+| QA                   | Rob Windsor (Microsoft MVP, PAIT Group) @rob-windsor    |
 | Sponsor / Support    | Vesa Juvonen (Microsoft) @VesaJuvonen                   |
 
 ## Version history
 
 | Version |       Date        |                    Comments                    |
 | ------- | ----------------- | ---------------------------------------------- |
+| 1.2     | March 11, 2019    | FY2019Q3 content refresh                       |
 | 1.1     | January 17, 2019  | Slide updates, added screencast link to readme |
 | 1.0     | December 17, 2018 | Initial release                                |
 
