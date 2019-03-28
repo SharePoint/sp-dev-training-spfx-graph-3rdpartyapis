@@ -126,7 +126,7 @@ In this exercise you will create a new SPFx project with a single client-side we
         ```
 
 1. Implement the web part logic to retrieve data from the remote service and set it on the public property for the React component:
-    1. Locate and open the **./src/webparts/spFxHttpClient/components/SpFxHttpClient.tsx** file.
+    1. Locate and open the **./src/webparts/spFxHttpClient/SpFxHttpClientWebPart.ts** file.
     1. Add the following `import` statement to the top of the file after the existing `import` statements:
 
         ```ts
@@ -340,7 +340,7 @@ In this exercise you will create a new SPFx project with a single client-side we
             this.context.aadHttpClientFactory
               .getClient('https://graph.microsoft.com')
               .then((aadClient: AadHttpClient) => {
-                const endpoint: string = 'https://graph.microsoft.com/v1.0/users?$top=10&$select=id,displayName,mail'
+                const endpoint: string = 'https://graph.microsoft.com/v1.0/users?$top=10&$select=id,displayName,mail';
                 aadClient.get(endpoint, AadHttpClient.configurations.v1)
                   .then((rawResponse: HttpClientResponse) => {
                     return rawResponse.json();
@@ -352,6 +352,28 @@ In this exercise you will create a new SPFx project with a single client-side we
             });
         }
         ```
+
+    1. Update the contents of the `render()` method to the following code:
+
+        ```ts
+        public render(): void {
+          if (!this.renderedOnce) {
+            this._getUsers()
+              .then((results: IUserItem[]) => {
+                const element: React.ReactElement<ISpFxAadHttpClientProps > = React.createElement(
+                  SpFxAadHttpClient,
+                  {
+                    userItems: results
+                  }
+              );
+
+              ReactDom.render(element, this.domElement);
+            });
+          }
+        }
+        ```
+
+        In this code, we have added a check to see if the web part has already been rendered on the page. If not, it calls the `_getUsers()` method previously added.        
 
 ### Update the Package Permission Requests
 
@@ -366,7 +388,7 @@ The last step before testing is to notify SharePoint that upon deployment to pro
         "resource": "Microsoft Graph",
         "scope": "User.ReadBasic.All"
       }
-    ],
+    ]
     ```
 
 ### Test the Web Part
@@ -423,7 +445,7 @@ The last step before testing is to notify SharePoint that upon deployment to pro
 
 1. Test the web part:
 
-    >NOTE: The SharePoint Framework includes a locally hosted & SharePoint Online hosted workbench for testing custom solutions. However, the workbench will not work the first time when testing solutions that utilize the Microsoft due to nuances with how the workbench operates and authentication requirements. Therefore, the first time you test a Microsoft Graph enabled SPFx solution, you will need to test them in a real modern page.
+    >NOTE: The SharePoint Framework includes a locally hosted & SharePoint Online hosted workbench for testing custom solutions. However, the workbench will not work the first time when testing solutions that utilize the Microsoft Graph due to nuances with how the workbench operates and authentication requirements. Therefore, the first time you test a Microsoft Graph enabled SPFx solution, you will need to test them in a real modern page.
     >
     >Once this has been done and your browser has been cookied by the Azure AD authentication process, you can leverage local webserver and SharePoint Online-hosted workbench for testing the solution.
 
@@ -452,7 +474,7 @@ The last step before testing is to notify SharePoint that upon deployment to pro
 
         1. When the page loads, notice after a brief delay, it will display a list of users:
 
-            ![Screenshot of the web part running in a modern SharePoint page](./aad-addpackage-07.png)
+            ![Screenshot of the web part running in a modern SharePoint page](./Images/aad-addpackage-07.png)
 
 1. Stop the local web server by pressing <kbd>CTRL</kbd>+<kbd>C</kbd> in the console/terminal window.
 
@@ -549,7 +571,7 @@ Update the default web part to pass into the React component an instance of the 
 ### Implement the GraphPersona React Component
 
 1. After updating the public signature of the **GraphPersona** component, the public property interface of the component needs to be updated to accept the Microsoft Graph client:
-    1. Open the **src/webparts/graphPersona/components/IGraphPersonaProps.tsx**
+    1. Open the **src/webparts/graphPersona/components/IGraphPersonaProps.ts**
     1. Replace the contents with the following code to change the public signature of the component:
 
         ```ts
@@ -694,7 +716,7 @@ The last step before testing is to notify SharePoint that upon deployment to pro
         "resource": "Microsoft Graph",
         "scope": "User.ReadBasic.All"
       }
-    ],
+    ]
     ```
 
 ### Test the Persona Solution
@@ -733,6 +755,9 @@ The last step before testing is to notify SharePoint that upon deployment to pro
         ![Screenshot of trusting a SharePoint package](./Images/tenant-app-catalog-02.png)
 
 1. Approve the API permission request:
+
+    >Note: If you completed Exercise 2 in this module you have already approved the permission request for **User.ReadBasic.All** so you may skip this step and move to testing the web part.
+
     1. Navigate to the SharePoint Admin Portal located at **https://{{REPLACE_WITH_YOUR_TENANTID}}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx**, replacing the domain with your SharePoint Online's administration tenant URL.
 
         >Note: At the time of writing, this feature is only in the SharePoint Online preview portal.

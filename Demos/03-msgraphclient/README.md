@@ -45,6 +45,9 @@ In this demo you will show a new SPFx project with a single client-side web part
         ![Screenshot of trusting a SharePoint package](../../Images/tenant-app-catalog-02.png)
 
 1. Approve the API permission request:
+
+    >Note: If you completed Exercise 2 in this module you have already approved the permission request for **User.ReadBasic.All** so you may skip this step and move to testing the web part.
+
     1. Navigate to the SharePoint Admin Portal located at **https://{{REPLACE_WITH_YOUR_TENANTID}}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx**, replacing the domain with your SharePoint Online's administration tenant URL.
 
         >Note: At the time of writing, this feature is only in the SharePoint Online preview portal.

@@ -87,6 +87,6 @@ In this exercise you will create a new SPFx project with a single client-side we
 
         1. When the page loads, notice after a brief delay, it will display a list of users:
 
-            ![Screenshot of the web part running in a modern SharePoint page](../..aad-addpackage-07.png)
+            ![Screenshot of the web part running in a modern SharePoint page](../../Images/aad-addpackage-07.png)
 
 1. Stop the local web server by pressing <kbd>CTRL</kbd>+<kbd>C</kbd> in the console/terminal window.

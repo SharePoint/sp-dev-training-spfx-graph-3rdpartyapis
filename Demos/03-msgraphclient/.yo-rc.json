@@ -2,11 +2,10 @@
   "@microsoft/generator-sharepoint": {
     "isCreatingSolution": true,
     "environment": "spo",
-    "version": "1.7.0",
+    "version": "1.7.1",
     "libraryName": "ms-graph-sp-fx",
-    "libraryId": "077bd998-bec8-413a-8c44-1981ef9787b2",
+    "libraryId": "e9082d2f-ea8a-4b06-a4db-22ee672888b4",
     "packageManager": "npm",
-    "isDomainIsolated": false,
     "componentType": "webpart"
   }
 }
