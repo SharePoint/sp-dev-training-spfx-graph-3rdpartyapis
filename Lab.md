@@ -59,7 +59,7 @@ In this exercise you will create a new SPFx project with a single client-side we
         ```
 
 1. Implement the user interface for the web part to display a list of items.
-    1. Locate and open the file **.//src/webparts/spFxHttpClient/components/SpFxHttpClient.module.scss**.
+    1. Locate and open the file **./src/webparts/spFxHttpClient/components/SpFxHttpClient.module.scss**.
     1. Add the following classes to the bottom of the file, immediately before the closing `}`:
 
         ```css
@@ -95,7 +95,7 @@ In this exercise you will create a new SPFx project with a single client-side we
         ```
 
     1. Locate and open the file **./src/webparts/spFxHttpClient/components/SpFxHttpClient.tsx**.
-    1. Update the markup returned by the `render()` method to the following code. This will create a list using the CSS classes under the existing markup displaying an image, the title of the image & a list of keywords associated with the image:
+    1. Update the markup returned by the `render()` method to the following code. This will create a list using the CSS classes under the existing markup displaying an image, the title of the image, and a list of keywords associated with the image:
 
         ```tsx
         <div className={ styles.spFxHttpClient }>
