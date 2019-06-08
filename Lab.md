@@ -441,7 +441,7 @@ The last step before testing is to notify SharePoint that upon deployment to pro
 
     1. Select the **Approve or Reject** button, followed by selecting **Approve**.
 
-        ![Screenshot of the SharePoint Online permission approval](./Images/aad-addpackage-03.png)
+        ![Screenshot of the SharePoint Online permission approval](./Images/spo-admin-portal-03.png)
 
 1. Test the web part:
 
@@ -514,27 +514,6 @@ In this exercise you will create a new SPFx project with a single client-side we
     ```shell
     npm install @microsoft/microsoft-graph-types --save-dev
     ```
-
-1. The web part will use the Fabric React controls to display user interface components. Configure the project to use Fabric React:
-    1. Execute the following on the command line to uninstall the SPFx Fabric Core library which is not needed as it is included in Fabric React:
-
-        ```shell
-        npm uninstall @microsoft/sp-office-ui-fabric-core
-        ```
-
-    1. Configure the included components styles to use the Fabric Core CSS from the Fabric React project.
-        1. Open the **src/webparts/graphPersona/components/GraphPersona.module.scss**
-        1. Replace the first line:
-
-            ```css
-            @import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
-            ```
-
-            With the following:
-
-            ```css
-            @import '~office-ui-fabric-react/dist/sass/_References.scss';
-            ```
 
 ### Update the Persona Web Part
 
@@ -706,7 +685,7 @@ Update the default web part to pass into the React component an instance of the 
 The last step before testing is to notify SharePoint that upon deployment to production, this app requires permission to the Microsoft Graph to access the user's persona details.
 
 1. Open the **config/package-solution.json** file.
-1. Locate the `solution` section. Add the following permission request element just after the property `includeClientSideAssets`:
+1. Locate the `solution` section. Add the following permission request element just after the property `isDomainIsolated`:
 
     ```json
     "webApiPermissionRequests": [
@@ -770,7 +749,7 @@ The last step before testing is to notify SharePoint that upon deployment to pro
 
     1. Select the **Approve or Reject** button, followed by selecting **Approve**.
 
-        ![Screenshot of the SharePoint Online permission approval](./Images/spo-admin-portal-03.png)
+        ![Screenshot of the SharePoint Online permission approval](./Images/spo-admin-portal-04.png)
 
 1. Test the web part:
 
@@ -805,5 +784,3 @@ The last step before testing is to notify SharePoint that upon deployment to pro
         1. When the page loads, notice after a brief delay, it will display the current user's details on the Persona card:
 
             ![Screenshot of the web part running in the hosted workbench](./Images/graph-persona-03.png)
-
-1. Stop the local web server by pressing <kbd>CTRL</kbd>+<kbd>C</kbd> in the console/terminal window.
