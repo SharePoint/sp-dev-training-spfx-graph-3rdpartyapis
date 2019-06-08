@@ -4,11 +4,11 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
+import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import {
-  BaseClientSideWebPart,
   IPropertyPaneConfiguration,
   PropertyPaneTextField
-} from '@microsoft/sp-webpart-base';
+} from '@microsoft/sp-property-pane';
 
 import * as strings from 'SpFxHttpClientWebPartStrings';
 import SpFxHttpClient from './components/SpFxHttpClient';
@@ -50,7 +50,7 @@ export default class SpFxHttpClientWebPart extends BaseClientSideWebPart<ISpFxHt
       return jsonResponse;
     }) as Promise<any>;
   }
-    
+
   protected onDispose(): void {
     ReactDom.unmountComponentAtNode(this.domElement);
   }
