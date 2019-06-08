@@ -251,7 +251,7 @@ In this exercise you will create a new SPFx project with a single client-side we
         }
         ```
 
-    1. Locate and open the file **.//src/webparts/spFxAadHttpClient/components/SpFxAadHttpClient.module.scss**.
+    1. Locate and open the file **./src/webparts/spFxAadHttpClient/components/SpFxAadHttpClient.module.scss**.
     1. Add the following classes to the bottom of the file, immediately before the closing `}`:
 
         ```css
@@ -380,7 +380,7 @@ In this exercise you will create a new SPFx project with a single client-side we
 The last step before testing is to notify SharePoint that upon deployment to production, this app requires permission to the Microsoft Graph API.
 
 1. Open the **./config/package-solution.json** file.
-1. Locate the `solution` section. Add the following permission request element just after the property `includeClientSideAssets`:
+1. Locate the `solution` section. Add the following permission request element just after the property `isDomainIsolated`:
 
     ```json
     "webApiPermissionRequests": [
@@ -475,8 +475,6 @@ The last step before testing is to notify SharePoint that upon deployment to pro
         1. When the page loads, notice after a brief delay, it will display a list of users:
 
             ![Screenshot of the web part running in a modern SharePoint page](./Images/aad-addpackage-07.png)
-
-1. Stop the local web server by pressing <kbd>CTRL</kbd>+<kbd>C</kbd> in the console/terminal window.
 
 <a name="exercise3"></a>
 
