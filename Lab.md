@@ -23,7 +23,7 @@ To complete this lab, you need the following:
 
 In this exercise you will create a new SPFx project with a single client-side web part that uses React to display the contents from an anonymous 3rd Party API: the [NASA Image REST API](https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf).
 
-### Create the Persona SPFx Solution
+### Create the SharePoint Framework Solution
 
 1. Open a command prompt and change to the folder where you want to create the project.
 1. Run the SharePoint Yeoman generator by executing the following command
@@ -49,8 +49,8 @@ In this exercise you will create a new SPFx project with a single client-side we
 1. When NPM completes downloading all dependencies, open the project in Visual Studio Code.
 
 1. Update the public interface for the React component:
-    1. Locate and open the file **./src/webparts/spFxHttpClient/components/ISpFxHttpClientProps.ts**. This is the interface for the public properties on the React component. It will need to display a custom object. This object is quite complex and while you could create an interface to represent it, in this lab we will set that complexity aside and focus on consuming an untyped TypeScript object.
-    1. Update the interface to replace the existing `description` property to be a collection of items that can be passed in and add an event when a button is clicked:
+    1. Locate and open the file **./src/webparts/spFxHttpClient/components/ISpFxHttpClientProps.ts**. This is the interface for the public properties on the React component. 
+    1. Update the interface to replace the existing `description` property with a property that will hold a custom object. This object is quite complex and while you could create an interface to represent it, in this lab we will set that complexity aside and focus on consuming an untyped TypeScript object.
 
         ```ts
         export interface ISpFxHttpClientDemoProps {
@@ -95,7 +95,7 @@ In this exercise you will create a new SPFx project with a single client-side we
         ```
 
     1. Locate and open the file **./src/webparts/spFxHttpClient/components/SpFxHttpClient.tsx**.
-    1. Update the markup returned by the `render()` method to the following code. This will create a list using the CSS classes under the existing markup displaying an image, the title of the image, and a list of keywords associated with the image:
+    1. Update the markup returned by the `render()` method to the following code. This will create a list using the CSS classes with each item displaying an image, the title of the image, and a list of keywords associated with the image:
 
         ```tsx
         <div className={ styles.spFxHttpClient }>
