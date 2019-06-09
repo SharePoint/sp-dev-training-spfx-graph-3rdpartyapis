@@ -287,7 +287,7 @@ In this exercise you will create a new SPFx project with a single client-side we
         ```
 
     1. Locate and open the file **./src/webparts/spFxAadHttpClient/components/SpFxAadHttpClient.tsx**.
-    1. Update the markup returned by the `render()` method to the following code. This will create a list using the CSS classes under the existing markup displaying a list of the users returned from the call to the Microsoft Graph:
+    1. Update the markup returned by the `render()` method to the following code. This will create a list using the CSS classes with each item displaying a list of the users returned from the call to the Microsoft Graph:
 
         ```tsx
         <div className={ styles.spFxAadHttpClient }>
@@ -317,7 +317,7 @@ In this exercise you will create a new SPFx project with a single client-side we
         </div>
         ```
 
-1. Update the web part code to call the Microsoft Graph using the `AADHttpClient` API.
+1. Update the web part code to call the Microsoft Graph using the `AadHttpClient` API.
     1. Locate and open the file **./src/webparts/spFxAadHttpClient/SpFxAadHttpClientWebPart.ts**.
     1. Add the following `import` statements immediately following the existing `import` statements:
 
