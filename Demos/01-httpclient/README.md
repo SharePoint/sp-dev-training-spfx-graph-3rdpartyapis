@@ -1,6 +1,13 @@
 # Calling Anonymous 3rd Party REST APIs
 
-In this demo you will create a new SPFx project with a single client-side web part that uses React to display the contents from an anonymous 3rd Party API: the [NASA Image REST API](https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf).
+In this demo you will test a client-side web part that uses React to display the contents from an anonymous 3rd Party API: the [NASA Image REST API](https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf).
+
+1. Open a command prompt and change directory to the root of the application.
+1. Execute the following command to download all necessary dependencies
+
+    ```shell
+    npm install
+    ```
 
 1. Start the local web server and test the web part in the hosted workbench:
 
