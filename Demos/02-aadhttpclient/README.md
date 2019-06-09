@@ -1,6 +1,6 @@
 # Demo: Calling Azure AD Protected 3rd Party REST APIs
 
-In this exercise you will test a client-side web part that uses React and the Microsoft Graph with the to display users in the currently logged in user's directory. You will use the Azure AD HTTP client API included in the SharePoint Framework to authenticate and call the Microsoft Graph REST API.
+In this exercise you will test a client-side web part that uses React and the Microsoft Graph to display users in the currently logged in user's directory. You will use the Azure AD HTTP client API included in the SharePoint Framework to authenticate and call the Microsoft Graph REST API.
 
 ## Running the demo
 

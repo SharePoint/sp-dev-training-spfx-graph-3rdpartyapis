@@ -1,6 +1,6 @@
 # Demo: Show profile details from Microsoft Graph in SPFx client-side web part
 
-In this demo you will show a new SPFx project with a single client-side web part that uses React, [Fabric React](https://developer.microsoft.com/fabric) and the Microsoft Graph to display the currently logged in user's personal details in a familiar office [Persona](https://developer.microsoft.com/fabric#/components/persona) card.
+In this demo you will test a client-side web part that uses React, [Fabric React](https://developer.microsoft.com/fabric) and the Microsoft Graph to display the currently logged in user's personal details in a familiar office [Persona](https://developer.microsoft.com/fabric#/components/persona) card.
 
 ## Running the demo
 
@@ -62,7 +62,7 @@ In this demo you will show a new SPFx project with a single client-side web part
 
     1. Select the **Approve or Reject** button, followed by selecting **Approve**.
 
-        ![Screenshot of the SharePoint Online permission approval](../../Images/spo-admin-portal-03.png)
+        ![Screenshot of the SharePoint Online permission approval](../../Images/spo-admin-portal-04.png)
 
 1. Test the web part:
 
