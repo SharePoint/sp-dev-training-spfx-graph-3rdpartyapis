@@ -1,10 +1,15 @@
 # Demo: Calling Azure AD Protected 3rd Party REST APIs
 
-In this exercise you will create a new SPFx project with a single client-side web part that uses React and the Microsoft Graph with the to display users in the currently logged in user's directory. You will use the Azure AD HTTP client API included in the SharePoint Framework to authenticate and call the Microsoft Graph REST API.
+In this exercise you will test a client-side web part that uses React and the Microsoft Graph to display users in the currently logged in user's directory. You will use the Azure AD HTTP client API included in the SharePoint Framework to authenticate and call the Microsoft Graph REST API.
 
 ## Running the demo
 
-### Test the Web Part
+1. Open a command prompt and change directory to the root of the application.
+1. Execute the following command to download all necessary dependencies
+
+    ```shell
+    npm install
+    ```
 
 1. Create the SharePoint package for deployment:
     1. Build the solution by executing the following on the command line:

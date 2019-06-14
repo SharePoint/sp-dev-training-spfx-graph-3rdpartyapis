@@ -23,7 +23,7 @@ To complete this lab, you need the following:
 
 In this exercise you will create a new SPFx project with a single client-side web part that uses React to display the contents from an anonymous 3rd Party API: the [NASA Image REST API](https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf).
 
-### Create the Persona SPFx Solution
+### Create the SharePoint Framework Solution
 
 1. Open a command prompt and change to the folder where you want to create the project.
 1. Run the SharePoint Yeoman generator by executing the following command
@@ -49,8 +49,8 @@ In this exercise you will create a new SPFx project with a single client-side we
 1. When NPM completes downloading all dependencies, open the project in Visual Studio Code.
 
 1. Update the public interface for the React component:
-    1. Locate and open the file **./src/webparts/spFxHttpClient/components/ISpFxHttpClientProps.ts**. This is the interface for the public properties on the React component. It will need to display a custom object. This object is quite complex and while you could create an interface to represent it, in this lab we will set that complexity aside and focus on consuming an untyped TypeScript object.
-    1. Update the interface to replace the existing `description` property to be a collection of items that can be passed in and add an event when a button is clicked:
+    1. Locate and open the file **./src/webparts/spFxHttpClient/components/ISpFxHttpClientProps.ts**. This is the interface for the public properties on the React component. 
+    1. Update the interface to replace the existing `description` property with a property that will hold a custom object. This object is quite complex and while you could create an interface to represent it, in this lab we will set that complexity aside and focus on consuming an untyped TypeScript object.
 
         ```ts
         export interface ISpFxHttpClientDemoProps {
@@ -59,7 +59,7 @@ In this exercise you will create a new SPFx project with a single client-side we
         ```
 
 1. Implement the user interface for the web part to display a list of items.
-    1. Locate and open the file **.//src/webparts/spFxHttpClient/components/SpFxHttpClient.module.scss**.
+    1. Locate and open the file **./src/webparts/spFxHttpClient/components/SpFxHttpClient.module.scss**.
     1. Add the following classes to the bottom of the file, immediately before the closing `}`:
 
         ```css
@@ -95,7 +95,7 @@ In this exercise you will create a new SPFx project with a single client-side we
         ```
 
     1. Locate and open the file **./src/webparts/spFxHttpClient/components/SpFxHttpClient.tsx**.
-    1. Update the markup returned by the `render()` method to the following code. This will create a list using the CSS classes under the existing markup displaying an image, the title of the image & a list of keywords associated with the image:
+    1. Update the markup returned by the `render()` method to the following code. This will create a list using the CSS classes with each item displaying an image, the title of the image, and a list of keywords associated with the image:
 
         ```tsx
         <div className={ styles.spFxHttpClient }>
@@ -251,7 +251,7 @@ In this exercise you will create a new SPFx project with a single client-side we
         }
         ```
 
-    1. Locate and open the file **.//src/webparts/spFxAadHttpClient/components/SpFxAadHttpClient.module.scss**.
+    1. Locate and open the file **./src/webparts/spFxAadHttpClient/components/SpFxAadHttpClient.module.scss**.
     1. Add the following classes to the bottom of the file, immediately before the closing `}`:
 
         ```css
@@ -287,7 +287,7 @@ In this exercise you will create a new SPFx project with a single client-side we
         ```
 
     1. Locate and open the file **./src/webparts/spFxAadHttpClient/components/SpFxAadHttpClient.tsx**.
-    1. Update the markup returned by the `render()` method to the following code. This will create a list using the CSS classes under the existing markup displaying a list of the users returned from the call to the Microsoft Graph:
+    1. Update the markup returned by the `render()` method to the following code. This will create a list using the CSS classes with each item displaying a list of the users returned from the call to the Microsoft Graph:
 
         ```tsx
         <div className={ styles.spFxAadHttpClient }>
@@ -317,7 +317,7 @@ In this exercise you will create a new SPFx project with a single client-side we
         </div>
         ```
 
-1. Update the web part code to call the Microsoft Graph using the `AADHttpClient` API.
+1. Update the web part code to call the Microsoft Graph using the `AadHttpClient` API.
     1. Locate and open the file **./src/webparts/spFxAadHttpClient/SpFxAadHttpClientWebPart.ts**.
     1. Add the following `import` statements immediately following the existing `import` statements:
 
@@ -380,7 +380,7 @@ In this exercise you will create a new SPFx project with a single client-side we
 The last step before testing is to notify SharePoint that upon deployment to production, this app requires permission to the Microsoft Graph API.
 
 1. Open the **./config/package-solution.json** file.
-1. Locate the `solution` section. Add the following permission request element just after the property `includeClientSideAssets`:
+1. Locate the `solution` section. Add the following permission request element just after the property `isDomainIsolated`:
 
     ```json
     "webApiPermissionRequests": [
@@ -441,7 +441,7 @@ The last step before testing is to notify SharePoint that upon deployment to pro
 
     1. Select the **Approve or Reject** button, followed by selecting **Approve**.
 
-        ![Screenshot of the SharePoint Online permission approval](./Images/aad-addpackage-03.png)
+        ![Screenshot of the SharePoint Online permission approval](./Images/spo-admin-portal-03.png)
 
 1. Test the web part:
 
@@ -475,8 +475,6 @@ The last step before testing is to notify SharePoint that upon deployment to pro
         1. When the page loads, notice after a brief delay, it will display a list of users:
 
             ![Screenshot of the web part running in a modern SharePoint page](./Images/aad-addpackage-07.png)
-
-1. Stop the local web server by pressing <kbd>CTRL</kbd>+<kbd>C</kbd> in the console/terminal window.
 
 <a name="exercise3"></a>
 
@@ -516,27 +514,6 @@ In this exercise you will create a new SPFx project with a single client-side we
     ```shell
     npm install @microsoft/microsoft-graph-types --save-dev
     ```
-
-1. The web part will use the Fabric React controls to display user interface components. Configure the project to use Fabric React:
-    1. Execute the following on the command line to uninstall the SPFx Fabric Core library which is not needed as it is included in Fabric React:
-
-        ```shell
-        npm uninstall @microsoft/sp-office-ui-fabric-core
-        ```
-
-    1. Configure the included components styles to use the Fabric Core CSS from the Fabric React project.
-        1. Open the **src/webparts/graphPersona/components/GraphPersona.module.scss**
-        1. Replace the first line:
-
-            ```css
-            @import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
-            ```
-
-            With the following:
-
-            ```css
-            @import '~office-ui-fabric-react/dist/sass/_References.scss';
-            ```
 
 ### Update the Persona Web Part
 
@@ -708,7 +685,7 @@ Update the default web part to pass into the React component an instance of the 
 The last step before testing is to notify SharePoint that upon deployment to production, this app requires permission to the Microsoft Graph to access the user's persona details.
 
 1. Open the **config/package-solution.json** file.
-1. Locate the `solution` section. Add the following permission request element just after the property `includeClientSideAssets`:
+1. Locate the `solution` section. Add the following permission request element just after the property `isDomainIsolated`:
 
     ```json
     "webApiPermissionRequests": [
@@ -772,7 +749,7 @@ The last step before testing is to notify SharePoint that upon deployment to pro
 
     1. Select the **Approve or Reject** button, followed by selecting **Approve**.
 
-        ![Screenshot of the SharePoint Online permission approval](./Images/spo-admin-portal-03.png)
+        ![Screenshot of the SharePoint Online permission approval](./Images/spo-admin-portal-04.png)
 
 1. Test the web part:
 
@@ -807,5 +784,3 @@ The last step before testing is to notify SharePoint that upon deployment to pro
         1. When the page loads, notice after a brief delay, it will display the current user's details on the Persona card:
 
             ![Screenshot of the web part running in the hosted workbench](./Images/graph-persona-03.png)
-
-1. Stop the local web server by pressing <kbd>CTRL</kbd>+<kbd>C</kbd> in the console/terminal window.
