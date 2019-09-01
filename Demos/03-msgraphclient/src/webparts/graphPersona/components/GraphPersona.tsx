@@ -48,14 +48,14 @@ export default class GraphPersona extends React.Component<IGraphPersonaProps, IG
       return <div />;
     }
   }
-
+  
   private _renderPhone = () => {
     if (this.state.phone) {
       return <Link href={`tel:${this.state.phone}`}>{this.state.phone}</Link>;
     } else {
       return <div />;
     }
-  }
+  }  
 
   public componentDidMount(): void {
     this.props.graphClient
