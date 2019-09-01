@@ -204,6 +204,8 @@ In this exercise you will create a new SPFx project with a single client-side we
 
 In this exercise you will create a new SPFx project with a single client-side web part that uses React and the Microsoft Graph with the to display users in the currently logged in user's directory. You will use the Azure AD HTTP client API included in the SharePoint Framework to authenticate and call the Microsoft Graph REST API.
 
+> NOTE: The instructions below assume you are using v1.9.1 of the SharePoint Framework Yeoman generator.
+
 1. Open a command prompt and change to the folder where you want to create the project.
 1. Run the SharePoint Yeoman generator by executing the following command
 
