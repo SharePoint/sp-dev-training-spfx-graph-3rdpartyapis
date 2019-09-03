@@ -25,6 +25,8 @@ In this exercise you will create a new SPFx project with a single client-side we
 
 ### Create the SharePoint Framework Solution
 
+> NOTE: The instructions below assume you are using v1.9.1 of the SharePoint Framework Yeoman generator.
+
 1. Open a command prompt and change to the folder where you want to create the project.
 1. Run the SharePoint Yeoman generator by executing the following command
 
@@ -201,6 +203,8 @@ In this exercise you will create a new SPFx project with a single client-side we
 ## Exercise 2: Calling Azure AD Protected 3rd Party REST APIs
 
 In this exercise you will create a new SPFx project with a single client-side web part that uses React and the Microsoft Graph with the to display users in the currently logged in user's directory. You will use the Azure AD HTTP client API included in the SharePoint Framework to authenticate and call the Microsoft Graph REST API.
+
+> NOTE: The instructions below assume you are using v1.9.1 of the SharePoint Framework Yeoman generator.
 
 1. Open a command prompt and change to the folder where you want to create the project.
 1. Run the SharePoint Yeoman generator by executing the following command
@@ -483,6 +487,8 @@ The last step before testing is to notify SharePoint that upon deployment to pro
 In this exercise you will create a new SPFx project with a single client-side web part that uses React and the Microsoft Graph to display the currently logged in user's personal details in a familiar office [Persona](https://developer.microsoft.com/fabric#/components/persona) card. You will use the Microsoft Graph HTTP client API included in the SharePoint Framework to authenticate and call the Microsoft Graph REST API.
 
 ### Create the Persona SPFx Solution
+
+> NOTE: The instructions below assume you are using v1.9.1 of the SharePoint Framework Yeoman generator.
 
 1. Open a command prompt and change to the folder where you want to create the project.
 1. Run the SharePoint Yeoman generator by executing the following command
