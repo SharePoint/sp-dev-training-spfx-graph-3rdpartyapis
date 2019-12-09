@@ -1,6 +1,6 @@
 ## Leverage the Microsoft Graph & 3rd Party APIs
 
-In this lab you work with the SharePoint Framework to communicate with external APIs from the Microsoft Graph and third party REST APIs in your SharePoint Framework project.
+In this lab you work with the SharePoint Framework to communicate with the Microsoft Graph and third party REST APIs in your SharePoint Framework project.
 
 ## In this lab
 
@@ -152,7 +152,7 @@ In this exercise you will create a new SPFx project with a single client-side we
         }
         ```
 
-        This method uses the `HttpClient` available from the current SharePoint context and issues an HTTP GET request to the NASA Imagery REST API with the query test of **Apollo 4**. After processing the response to JSON, it is returned to the caller as an untyped `any` object.
+        This method uses the `HttpClient` available from the current SharePoint context and issues an HTTP GET request to the NASA Image REST API with the query test of **Apollo 4**. After processing the response to JSON, it is returned to the caller as an untyped `any` object.
 
     1. Update the contents of the `render()` method to the following code:
 
@@ -202,7 +202,7 @@ In this exercise you will create a new SPFx project with a single client-side we
 
 ## Exercise 2: Calling Azure AD Protected 3rd Party REST APIs
 
-In this exercise you will create a new SPFx project with a single client-side web part that uses React and the Microsoft Graph with the to display users in the currently logged in user's directory. You will use the Azure AD HTTP client API included in the SharePoint Framework to authenticate and call the Microsoft Graph REST API.
+In this exercise you will create a new SPFx project with a single client-side web part that uses React and the Microsoft Graph to display users in the currently logged in user's directory. You will use the Azure AD HTTP client API included in the SharePoint Framework to authenticate and call the Microsoft Graph REST API.
 
 > NOTE: The instructions below assume you are using v1.9.1 of the SharePoint Framework Yeoman generator.
 
@@ -432,9 +432,7 @@ The last step before testing is to notify SharePoint that upon deployment to pro
 
 1. Approve the API permission request:
     1. Navigate to the SharePoint Admin Portal located at **https://{{REPLACE_WITH_YOUR_TENANTID}}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx**, replacing the domain with your SharePoint Online's administration tenant URL.
-
-        >Note: At the time of writing, this feature is only in the SharePoint Online preview portal.
-
+       
     1. In the navigation, select **Advanced > API Management**:
 
         ![Screenshot of the SharePoint Online admin portal](./Images/spo-admin-portal-01.png)
@@ -449,7 +447,7 @@ The last step before testing is to notify SharePoint that upon deployment to pro
 
 1. Test the web part:
 
-    >NOTE: The SharePoint Framework includes a locally hosted & SharePoint Online hosted workbench for testing custom solutions. However, the workbench will not work the first time when testing solutions that utilize the Microsoft Graph due to nuances with how the workbench operates and authentication requirements. Therefore, the first time you test a Microsoft Graph enabled SPFx solution, you will need to test them in a real modern page.
+    >NOTE: The SharePoint Framework includes a locally hosted and a SharePoint Online hosted workbench for testing custom solutions. However, the workbench will not work the first time when testing solutions that utilize the Microsoft Graph due to nuances with how the workbench operates and authentication requirements. Therefore, the first time you test a Microsoft Graph enabled SPFx solution, you will need to test them in a real modern page.
     >
     >Once this has been done and your browser has been cookied by the Azure AD authentication process, you can leverage local webserver and SharePoint Online-hosted workbench for testing the solution.
 
@@ -743,8 +741,6 @@ The last step before testing is to notify SharePoint that upon deployment to pro
 
     1. Navigate to the SharePoint Admin Portal located at **https://{{REPLACE_WITH_YOUR_TENANTID}}-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx**, replacing the domain with your SharePoint Online's administration tenant URL.
 
-        >Note: At the time of writing, this feature is only in the SharePoint Online preview portal.
-
     1. In the navigation, select **Advanced > API Management**:
 
         ![Screenshot of the SharePoint Online admin portal](./Images/spo-admin-portal-01.png)
@@ -759,7 +755,7 @@ The last step before testing is to notify SharePoint that upon deployment to pro
 
 1. Test the web part:
 
-    >NOTE: The SharePoint Framework includes a locally hosted & SharePoint Online hosted workbench for testing custom solutions. However, the workbench will not work the first time when testing solutions that utilize the Microsoft due to nuances with how the workbench operates and authentication requirements. Therefore, the first time you test a Microsoft Graph enabled SPFx solution, you will need to test them in a real modern page.
+    >NOTE: The SharePoint Framework includes a locally hosted and a SharePoint Online hosted workbench for testing custom solutions. However, the workbench will not work the first time when testing solutions that utilize the Microsoft due to nuances with how the workbench operates and authentication requirements. Therefore, the first time you test a Microsoft Graph enabled SPFx solution, you will need to test them in a real modern page.
     >
     >Once this has been done and your browser has been cookied by the Azure AD authentication process, you can leverage local webserver and SharePoint Online-hosted workbench for testing the solution.
 
