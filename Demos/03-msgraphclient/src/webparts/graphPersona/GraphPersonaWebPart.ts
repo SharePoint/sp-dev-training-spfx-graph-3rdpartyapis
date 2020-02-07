@@ -5,10 +5,10 @@ import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
-  BaseClientSideWebPart,
   IPropertyPaneConfiguration,
   PropertyPaneTextField
-} from '@microsoft/sp-webpart-base';
+} from '@microsoft/sp-property-pane';
+import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 
 import * as strings from 'GraphPersonaWebPartStrings';
 import GraphPersona from './components/GraphPersona';
@@ -20,7 +20,7 @@ export interface IGraphPersonaWebPartProps {
   description: string;
 }
 
-export default class GraphPersonaWebPart extends BaseClientSideWebPart<IGraphPersonaWebPartProps> {
+export default class GraphPersonaWebPart extends BaseClientSideWebPart <IGraphPersonaWebPartProps> {
 
   public render(): void {
     this.context.msGraphClientFactory.getClient()

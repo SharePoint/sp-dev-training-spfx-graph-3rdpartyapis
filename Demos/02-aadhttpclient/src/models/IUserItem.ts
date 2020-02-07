@@ -2,7 +2,7 @@
 // Licensed under the MIT license.
 
 export interface IUserItem {
-    id: string;
-    mail?: string;
-    displayName?: string;
+  id: string;
+  mail?: string;
+  displayName?: string;
 }
