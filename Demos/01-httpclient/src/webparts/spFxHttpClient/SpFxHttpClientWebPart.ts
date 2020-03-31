@@ -1,11 +1,14 @@
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license.
+
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
-  BaseClientSideWebPart,
   IPropertyPaneConfiguration,
   PropertyPaneTextField
-} from '@microsoft/sp-webpart-base';
+} from '@microsoft/sp-property-pane';
+import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 
 import * as strings from 'SpFxHttpClientWebPartStrings';
 import SpFxHttpClient from './components/SpFxHttpClient';
@@ -17,7 +20,7 @@ export interface ISpFxHttpClientWebPartProps {
   description: string;
 }
 
-export default class SpFxHttpClientWebPart extends BaseClientSideWebPart<ISpFxHttpClientWebPartProps> {
+export default class SpFxHttpClientWebPart extends BaseClientSideWebPart <ISpFxHttpClientWebPartProps> {
 
   public render(): void {
     if (!this.renderedOnce) {

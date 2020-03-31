@@ -1,12 +1,12 @@
-# Microsoft SharePoint Framework Training Module - Leverage the Microsoft Graph & 3rd Party APIs
+# Microsoft SharePoint Framework Training Module - Leverage Microsoft Graph & third-party APIs
 
-This folder contains demos for the SharePoint Framework training module on Leverage the Microsoft Graph & 3rd Party APIs.
+This folder contains demos for the SharePoint Framework training module on Leverage Microsoft Graph & third-party APIs
 
 ## Demos
 
-- [Calling Anonymous 3rd Party REST APIs](./01-httpclient)
-- [Calling Azure AD Protected 3rd Party REST APIs](./02-aadhttpclient)
-- [Calling the Microsoft Graph](./03-msgraphclient)
+- [Call anonymous third-party REST APIs](./01-httpclient)
+- [Call Azure AD secured REST APIs](./02-aadhttpclient)
+- [Call Microsoft Graph from SharePoint Framework components](./03-msgraphclient)
 
 ## Running demonstrations
 

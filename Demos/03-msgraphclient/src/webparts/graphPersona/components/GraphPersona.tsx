@@ -18,6 +18,7 @@ import {
 import { Link } from 'office-ui-fabric-react/lib/components/Link';
 
 export default class GraphPersona extends React.Component<IGraphPersonaProps, IGraphPersonaState> {
+
   constructor(props: IGraphPersonaProps) {
     super(props);
 

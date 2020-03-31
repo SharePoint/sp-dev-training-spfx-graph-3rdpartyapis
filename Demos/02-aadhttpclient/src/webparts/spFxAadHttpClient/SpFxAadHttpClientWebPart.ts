@@ -5,10 +5,10 @@ import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
-  BaseClientSideWebPart,
   IPropertyPaneConfiguration,
   PropertyPaneTextField
-} from '@microsoft/sp-webpart-base';
+} from '@microsoft/sp-property-pane';
+import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 
 import * as strings from 'SpFxAadHttpClientWebPartStrings';
 import SpFxAadHttpClient from './components/SpFxAadHttpClient';
@@ -21,7 +21,7 @@ export interface ISpFxAadHttpClientWebPartProps {
   description: string;
 }
 
-export default class SpFxAadHttpClientWebPart extends BaseClientSideWebPart<ISpFxAadHttpClientWebPartProps> {
+export default class SpFxAadHttpClientWebPart extends BaseClientSideWebPart <ISpFxAadHttpClientWebPartProps> {
 
   public render(): void {
     if (!this.renderedOnce) {

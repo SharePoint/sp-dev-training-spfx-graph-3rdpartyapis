@@ -1,40 +1,53 @@
-# Microsoft SharePoint Framework Training Module - Leverage the Microsoft Graph & 3rd Party APIs
+# Microsoft SharePoint Framework Training Module - Leverage Microsoft Graph & third-party APIs
 
 This module will introduce you to utilizing external APIs in your SharePoint Framework projects.
 
-## Lab - Leverage the Microsoft Graph & 3rd Party APIs
+> This module is also published as a Microsoft Learn module: [Leverage Microsoft Graph & third-party APIs](https://docs.microsoft.com/learn/modules/sharepoint-spfx-graph-3rd-party-apis)
 
-In this lab you work with the SharePoint Framework to communicate with external APIs from the Microsoft Graph and third party REST APIs in your SharePoint Framework project.
+## Lab - Leverage Microsoft Graph & third-party APIs
 
-- [Lab manual](./Lab.md)
+The lab for this module is available in multiple units within the associated Microsoft Learn module. Use the following links to jump to the specific unit. Each Microsoft Learn unit represents a different lab exercise & demo in the presentation.
+
+- [Exercise - Call anonymous third-party REST APIs](https://docs.microsoft.com/learn/modules/sharepoint-spfx-graph-3rd-party-apis/3-exercise-anonymous-apis)
+
+    In this exercise, you'll create a new SharePoint Framework project with a single client-side web part that uses React to display the results from a call to an anonymous third-party API: the NASA Image REST API.
+
+- [Exercise - Call Azure AD secured REST APIs](https://docs.microsoft.com/learn/modules/sharepoint-spfx-graph-3rd-party-apis/5-exercise-azure-ad-apis)
+
+    In this exercise, you'll create a new SharePoint Framework project with a single client-side web part that uses React and Microsoft Graph to display users in the currently logged in user's directory. You'll use the Azure AD HTTP client API included in the SharePoint Framework to authenticate and call the Microsoft Graph REST API.
+
+- [Exercise - Call Microsoft Graph from SharePoint Framework components](https://docs.microsoft.com/learn/modules/sharepoint-spfx-graph-3rd-party-apis/7-exercise-graph-api)
+
+    In this exercise, you'll create a new SharePoint Framework project with a single client-side web part that uses React and Microsoft Graph to display the currently logged in user's personal details in a familiar office Persona card.
 
 ## Demos
 
-- [Calling Anonymous 3rd Party REST APIs](./Demos/01-httpclient)
-- [Calling Azure AD Protected 3rd Party REST APIs](./Demos/02-aadhttpclient)
-- [Calling the Microsoft Graph](./Demos/03-msgraphclient)
+- [Call anonymous third-party REST APIs](./Demos/01-httpclient)
+- [Call Azure AD secured REST APIs](./Demos/02-aadhttpclient)
+- [Call Microsoft Graph from SharePoint Framework components](./Demos/03-msgraphclient)
 
 ## Watch the Module - Video
 
-This module has been recorded and is available in the SharePoint Development YouTube channel: [SharePoint Framework Training - Developing with the SharePoint Framework: Leverage the Microsoft Graph & 3rd Party APIs](https://www.youtube.com/watch?v=0zVtDn0ckBM&list=PLR9nK3mnD-OV-RPXQ3Lco845qoEy7VJoc)
+This module has been recorded and is available in the SharePoint Development YouTube channel: [SharePoint Framework Training - Developing with the SharePoint Framework: Leverage Microsoft Graph & third-party APIs](https://www.youtube.com/watch?v=0zVtDn0ckBM&list=PLR9nK3mnD-OV-RPXQ3Lco845qoEy7VJoc)
 
 ## Contributors
 
-|        Roles         |                        Author(s)                        |
-| -------------------- | ------------------------------------------------------- |
-| Lab Manuals / Slides | Andrew Connell (Microsoft MVP, Voitanos) @andrewconnell |
-| QA                   | Rob Windsor (Microsoft MVP, PAIT Group) @rob-windsor    |
-| Sponsor / Support    | Vesa Juvonen (Microsoft) @VesaJuvonen                   |
+|        Roles         |                                                   Author(s)                                                    |
+| -------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Lab Manuals / Slides | Andrew Connell (Microsoft MVP, [Voitanos](//github.com/voitanos)) [@andrewconnell](//github.com/andrewconnell) |
+| QA                   | Rob Windsor (Microsoft MVP, PAIT Group) [@rob-windsor](//github.com/rob-windsor)                               |
+| Sponsor / Support    | Vesa Juvonen (Microsoft) [@VesaJuvonen](//github.com/VesaJuvonen)                                              |
 
 ## Version history
 
-| Version |       Date        |                    Comments                    |
-| ------- | ----------------- | ---------------------------------------------- |
-| 1.4     | December 6, 2019  | 2020Q2 content refresh                         |
-| 1.3     | September 2, 2019 | 2020Q1 content refresh                         |
-| 1.2     | March 11, 2019    | FY2019Q3 content refresh                       |
-| 1.1     | January 17, 2019  | Slide updates, added screencast link to readme |
-| 1.0     | December 17, 2018 | Initial release                                |
+| Version |       Date        |                      Comments                      |
+| ------- | ----------------- | -------------------------------------------------- |
+| 1.5     | March 10, 2020    | FY2020Q3 content refresh & port module to MS Learn |
+| 1.4     | December 6, 2019  | FY2020Q2 content refresh                           |
+| 1.3     | September 2, 2019 | FY2020Q1 content refresh                           |
+| 1.2     | March 11, 2019    | FY2019Q3 content refresh                           |
+| 1.1     | January 17, 2019  | Slide updates, added screencast link to readme     |
+| 1.0     | December 17, 2018 | Initial release                                    |
 
 ## Disclaimer
 
