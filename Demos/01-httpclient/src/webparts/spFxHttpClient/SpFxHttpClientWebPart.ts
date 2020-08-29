@@ -14,13 +14,16 @@ import * as strings from 'SpFxHttpClientWebPartStrings';
 import SpFxHttpClient from './components/SpFxHttpClient';
 import { ISpFxHttpClientProps } from './components/ISpFxHttpClientProps';
 
-import { HttpClient, HttpClientResponse } from '@microsoft/sp-http';
+import {
+  HttpClient,
+  HttpClientResponse
+} from '@microsoft/sp-http';
 
 export interface ISpFxHttpClientWebPartProps {
   description: string;
 }
 
-export default class SpFxHttpClientWebPart extends BaseClientSideWebPart <ISpFxHttpClientWebPartProps> {
+export default class SpFxHttpClientWebPart extends BaseClientSideWebPart<ISpFxHttpClientWebPartProps> {
 
   public render(): void {
     if (!this.renderedOnce) {
@@ -43,13 +46,13 @@ export default class SpFxHttpClientWebPart extends BaseClientSideWebPart <ISpFxH
       `https://images-api.nasa.gov/search?q=Apollo%204&media_type=image`,
       HttpClient.configurations.v1
     )
-    .then((response: HttpClientResponse) => {
-      return response.json();
-    })
-    .then(jsonResponse => {
-      return jsonResponse;
-    }) as Promise<any>;
-  }  
+      .then((response: HttpClientResponse) => {
+        return response.json();
+      })
+      .then(jsonResponse => {
+        return jsonResponse;
+      }) as Promise<any>;
+  }
 
   protected onDispose(): void {
     ReactDom.unmountComponentAtNode(this.domElement);

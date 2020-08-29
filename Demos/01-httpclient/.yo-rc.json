@@ -2,9 +2,9 @@
   "@microsoft/generator-sharepoint": {
     "isCreatingSolution": true,
     "environment": "spo",
-    "version": "1.10.0",
+    "version": "1.11.0",
     "libraryName": "sp-fx-http-client",
-    "libraryId": "9d146aca-a356-47dd-8f17-546f636aa8fd",
+    "libraryId": "7035932a-1656-4a39-ad9c-67c0be22f2e6",
     "packageManager": "npm",
     "isDomainIsolated": false,
     "componentType": "webpart"

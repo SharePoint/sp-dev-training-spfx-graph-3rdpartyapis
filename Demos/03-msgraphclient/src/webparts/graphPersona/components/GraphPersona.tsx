@@ -15,10 +15,10 @@ import {
   Persona,
   PersonaSize
 } from 'office-ui-fabric-react/lib/components/Persona';
+
 import { Link } from 'office-ui-fabric-react/lib/components/Link';
 
 export default class GraphPersona extends React.Component<IGraphPersonaProps, IGraphPersonaState> {
-
   constructor(props: IGraphPersonaProps) {
     super(props);
 
@@ -49,14 +49,14 @@ export default class GraphPersona extends React.Component<IGraphPersonaProps, IG
       return <div />;
     }
   }
-  
+
   private _renderPhone = () => {
     if (this.state.phone) {
       return <Link href={`tel:${this.state.phone}`}>{this.state.phone}</Link>;
     } else {
       return <div />;
     }
-  }  
+  }
 
   public componentDidMount(): void {
     this.props.graphClient
@@ -68,7 +68,7 @@ export default class GraphPersona extends React.Component<IGraphPersonaProps, IG
           phone: user.businessPhones[0]
         });
       });
-  
+
     this.props.graphClient
       .api('/me/photo/$value')
       .responseType('blob')
@@ -76,5 +76,5 @@ export default class GraphPersona extends React.Component<IGraphPersonaProps, IG
         const blobUrl = window.URL.createObjectURL(photoResponse);
         this.setState({ image: blobUrl });
       });
-  }  
+  }
 }

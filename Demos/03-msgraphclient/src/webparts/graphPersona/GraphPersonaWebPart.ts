@@ -20,7 +20,7 @@ export interface IGraphPersonaWebPartProps {
   description: string;
 }
 
-export default class GraphPersonaWebPart extends BaseClientSideWebPart <IGraphPersonaWebPartProps> {
+export default class GraphPersonaWebPart extends BaseClientSideWebPart<IGraphPersonaWebPartProps> {
 
   public render(): void {
     this.context.msGraphClientFactory.getClient()
