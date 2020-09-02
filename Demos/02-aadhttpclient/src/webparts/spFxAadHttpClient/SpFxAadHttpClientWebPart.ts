@@ -15,13 +15,16 @@ import SpFxAadHttpClient from './components/SpFxAadHttpClient';
 import { ISpFxAadHttpClientProps } from './components/ISpFxAadHttpClientProps';
 
 import { IUserItem } from '../../models/IUserItem';
-import { AadHttpClient, HttpClientResponse } from '@microsoft/sp-http';
+import {
+  AadHttpClient,
+  HttpClientResponse
+} from '@microsoft/sp-http';
 
 export interface ISpFxAadHttpClientWebPartProps {
   description: string;
 }
 
-export default class SpFxAadHttpClientWebPart extends BaseClientSideWebPart <ISpFxAadHttpClientWebPartProps> {
+export default class SpFxAadHttpClientWebPart extends BaseClientSideWebPart<ISpFxAadHttpClientWebPartProps> {
 
   public render(): void {
     if (!this.renderedOnce) {
@@ -53,8 +56,8 @@ export default class SpFxAadHttpClientWebPart extends BaseClientSideWebPart <ISp
               resolve(jsonResponse.value);
             });
         });
-      });
-  }  
+    });
+  }
 
   protected onDispose(): void {
     ReactDom.unmountComponentAtNode(this.domElement);

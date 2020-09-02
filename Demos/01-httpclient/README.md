@@ -1,6 +1,6 @@
 # DEMO: Call anonymous third-party REST APIs
 
-This completed project is the result of the lab exercise **Call anonymous third-party REST APIs** that is referenced in the [README](../../) in this repo.
+This completed project is the result of the lab exercise **Call anonymous third-party REST APIs** that is referenced in the [README](../../README.md) in this repo.
 
 ## Prerequisites
 

@@ -1,6 +1,6 @@
 # DEMO: Call Microsoft Graph from SharePoint Framework components
 
-This completed project is the result of the lab exercise **Call Microsoft Graph from SharePoint Framework components** that is referenced in the [README](../../) in this repo.
+This completed project is the result of the lab exercise **Call Microsoft Graph from SharePoint Framework components** that is referenced in the [README](../../README.md) in this repo.
 
 ## Prerequisites
 

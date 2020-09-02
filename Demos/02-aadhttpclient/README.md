@@ -1,6 +1,6 @@
 # DEMO: Call Azure AD secured REST APIs
 
-This completed project is the result of the lab exercise **Call Azure AD secured REST APIs** that is referenced in the [README](../../) in this repo.
+This completed project is the result of the lab exercise **Call Azure AD secured REST APIs** that is referenced in the [README](../../README.md) in this repo.
 
 ## Prerequisites
 
