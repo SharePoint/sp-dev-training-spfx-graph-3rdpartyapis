@@ -4,7 +4,7 @@
     "environment": "spo",
     "version": "1.11.0",
     "libraryName": "ms-graph-sp-fx",
-    "libraryId": "61cb1835-5928-43d8-8ac8-1ca30ed8e76a",
+    "libraryId": "e0dae169-46a2-4adb-b58a-ebf635d50ce9",
     "packageManager": "npm",
     "isDomainIsolated": false,
     "componentType": "webpart"
