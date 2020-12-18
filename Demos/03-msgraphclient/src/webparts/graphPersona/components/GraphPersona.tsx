@@ -30,6 +30,26 @@ export default class GraphPersona extends React.Component<IGraphPersonaProps, IG
     };
   }
 
+  public componentDidMount(): void {
+    this.props.graphClient
+      .api('me')
+      .get((error: any, user: MicrosoftGraph.User, rawResponse?: any) => {
+        this.setState({
+          name: user.displayName,
+          email: user.mail,
+          phone: user.businessPhones[0]
+        });
+      });
+
+    this.props.graphClient
+      .api('/me/photo/$value')
+      .responseType('blob')
+      .get((err: any, photoResponse: any, rawResponse: any) => {
+        const blobUrl = window.URL.createObjectURL(photoResponse);
+        this.setState({ image: blobUrl });
+      });
+  }
+
   public render(): React.ReactElement<IGraphPersonaProps> {
     return (
       <Persona primaryText={this.state.name}
@@ -56,25 +76,5 @@ export default class GraphPersona extends React.Component<IGraphPersonaProps, IG
     } else {
       return <div />;
     }
-  }
-
-  public componentDidMount(): void {
-    this.props.graphClient
-      .api('me')
-      .get((error: any, user: MicrosoftGraph.User, rawResponse?: any) => {
-        this.setState({
-          name: user.displayName,
-          email: user.mail,
-          phone: user.businessPhones[0]
-        });
-      });
-
-    this.props.graphClient
-      .api('/me/photo/$value')
-      .responseType('blob')
-      .get((err: any, photoResponse: any, rawResponse: any) => {
-        const blobUrl = window.URL.createObjectURL(photoResponse);
-        this.setState({ image: blobUrl });
-      });
   }
 }

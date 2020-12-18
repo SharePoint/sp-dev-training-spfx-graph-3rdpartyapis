@@ -29,13 +29,13 @@ export default class SpFxHttpClientWebPart extends BaseClientSideWebPart<ISpFxHt
     if (!this.renderedOnce) {
       this._getApolloImage()
         .then(response => {
-          const element: React.ReactElement<ISpFxHttpClientProps > = React.createElement(
+          const element: React.ReactElement<ISpFxHttpClientProps> = React.createElement(
             SpFxHttpClient,
             {
               apolloMissionImage: response.collection.items[0]
             }
           );
-  
+
           ReactDom.render(element, this.domElement);
         });
     }
