@@ -30,15 +30,15 @@ export default class SpFxAadHttpClientWebPart extends BaseClientSideWebPart<ISpF
     if (!this.renderedOnce) {
       this._getUsers()
         .then((results: IUserItem[]) => {
-          const element: React.ReactElement<ISpFxAadHttpClientProps > = React.createElement(
+          const element: React.ReactElement<ISpFxAadHttpClientProps> = React.createElement(
             SpFxAadHttpClient,
             {
               userItems: results
             }
-        );
-  
-        ReactDom.render(element, this.domElement);
-      });
+          );
+
+          ReactDom.render(element, this.domElement);
+        });
     }
   }
 

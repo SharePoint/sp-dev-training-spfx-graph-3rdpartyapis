@@ -76,34 +76,34 @@
       display: inline-block;
     }
   }
-}
 
-.list {
-  color: $ms-color-themeDark;
-  background-color: $ms-color-themeLight;
-  font-family: 'Segoe UI Regular WestEuropean', 'Segoe UI', Tahoma, Arial, sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-  box-sizing: border-box;
-  margin: 0 0;
-  padding: 10px 0 100px 0;
-  line-height: 50px;
-  list-style-type: none;
-}
-
-.item {
-  color: $ms-color-themeDark;
-  background-color: $ms-color-themeLighterAlt;
-  vertical-align: center;
-  font-family: 'Segoe UI Regular WestEuropean', 'Segoe UI', Tahoma, Arial, sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  box-shadow: none;
-  *zoom: 1;
-  padding: 0 15px;
-  position: relative;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  .list {
+    color: $ms-color-themeDark;
+    background-color: $ms-color-themeLight;
+    font-family: 'Segoe UI Regular WestEuropean', 'Segoe UI', Tahoma, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    box-sizing: border-box;
+    margin: 0 0;
+    padding: 10px 0 100px 0;
+    line-height: 50px;
+    list-style-type: none;
+  }
+  
+  .item {
+    color: $ms-color-themeDark;
+    background-color: $ms-color-themeLighterAlt;
+    vertical-align: center;
+    font-family: 'Segoe UI Regular WestEuropean', 'Segoe UI', Tahoma, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    *zoom: 1;
+    padding: 0 15px;
+    position: relative;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  }
 }
