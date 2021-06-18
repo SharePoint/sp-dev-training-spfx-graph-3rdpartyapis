@@ -24,16 +24,16 @@ export default class GraphPersonaWebPart extends BaseClientSideWebPart<IGraphPer
 
   public render(): void {
     this.context.msGraphClientFactory.getClient()
-      .then((client: MSGraphClient): void => {
-        const element: React.ReactElement<IGraphPersonaProps> = React.createElement(
-          GraphPersona,
-          {
-            graphClient: client
-          }
-        );
-
-        ReactDom.render(element, this.domElement);
-      });
+    .then((client: MSGraphClient): void => {
+      const element: React.ReactElement<IGraphPersonaProps> = React.createElement(
+        GraphPersona,
+        {
+          graphClient: client
+        }
+      );
+    
+      ReactDom.render(element, this.domElement);
+    });
   }
 
   protected onDispose(): void {
