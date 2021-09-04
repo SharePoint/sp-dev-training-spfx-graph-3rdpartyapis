@@ -4,7 +4,7 @@
     "environment": "spo",
     "version": "1.12.1",
     "libraryName": "sp-fx-http-client",
-    "libraryId": "b7794e3b-20b0-49f8-a7ef-386174ad5902",
+    "libraryId": "ddeb6beb-b03a-402e-828f-cfe0a1600832",
     "packageManager": "npm",
     "isDomainIsolated": false,
     "componentType": "webpart"

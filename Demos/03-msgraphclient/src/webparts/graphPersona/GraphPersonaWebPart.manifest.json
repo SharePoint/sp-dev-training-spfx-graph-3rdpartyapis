@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
-  "id": "0faf804e-0c52-4cd4-8358-0fb3df991b10",
+  "id": "ed3597a3-8532-4219-b10b-36b88546b688",
   "alias": "GraphPersonaWebPart",
   "componentType": "WebPart",
 
