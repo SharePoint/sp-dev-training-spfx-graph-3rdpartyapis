@@ -29,13 +29,13 @@ export default class SpFxHttpClientWebPart extends BaseClientSideWebPart<ISpFxHt
     if (!this.renderedOnce) {
       this._getApolloImage()
         .then(response => {
-          const element: React.ReactElement<ISpFxHttpClientProps> = React.createElement(
+          const element: React.ReactElement<ISpFxHttpClientProps > = React.createElement(
             SpFxHttpClient,
             {
               apolloMissionImage: response.collection.items[0]
             }
           );
-
+  
           ReactDom.render(element, this.domElement);
         });
     }
@@ -46,12 +46,12 @@ export default class SpFxHttpClientWebPart extends BaseClientSideWebPart<ISpFxHt
       `https://images-api.nasa.gov/search?q=Apollo%204&media_type=image`,
       HttpClient.configurations.v1
     )
-      .then((response: HttpClientResponse) => {
-        return response.json();
-      })
-      .then(jsonResponse => {
-        return jsonResponse;
-      }) as Promise<any>;
+    .then((response: HttpClientResponse) => {
+      return response.json();
+    })
+    .then(jsonResponse => {
+      return jsonResponse;
+    }) as Promise<any>;
   }
 
   protected onDispose(): void {
