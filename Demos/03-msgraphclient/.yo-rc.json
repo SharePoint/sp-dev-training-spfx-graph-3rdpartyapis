@@ -1,10 +1,11 @@
 {
   "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
     "isCreatingSolution": true,
     "environment": "spo",
-    "version": "1.12.1",
+    "version": "1.13.0",
     "libraryName": "ms-graph-sp-fx",
-    "libraryId": "17a7e1ab-3e53-4828-ba49-b96aa58e9b05",
+    "libraryId": "8f8c0d21-9dd9-484d-8abe-523e12a68cf5",
     "packageManager": "npm",
     "isDomainIsolated": false,
     "componentType": "webpart"
