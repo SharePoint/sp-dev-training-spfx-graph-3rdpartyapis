@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
     "name": "ms-graph-sp-fx-client-side-solution",
-    "id": "8f8c0d21-9dd9-484d-8abe-523e12a68cf5",
+    "id": "e6995454-b0d3-42a0-83db-90fe88c17b93",
     "version": "1.0.0.0",
     "includeClientSideAssets": true,
     "isDomainIsolated": false,
@@ -17,7 +17,7 @@
       "websiteUrl": "",
       "privacyUrl": "",
       "termsOfUseUrl": "",
-      "mpnId": "Undefined-1.13.0"
+      "mpnId": "Undefined-1.13.1"
     }
   },
   "paths": {

@@ -3,9 +3,9 @@
     "plusBeta": false,
     "isCreatingSolution": true,
     "environment": "spo",
-    "version": "1.13.0",
+    "version": "1.13.1",
     "libraryName": "sp-fx-aad-http-client",
-    "libraryId": "094dc2fc-3a89-4ddf-ad12-6de4b24f2400",
+    "libraryId": "1d322e7d-f51b-4507-b56b-da25373ecc6e",
     "packageManager": "npm",
     "isDomainIsolated": false,
     "componentType": "webpart"

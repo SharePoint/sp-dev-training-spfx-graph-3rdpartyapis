@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
     "name": "sp-fx-aad-http-client-client-side-solution",
-    "id": "094dc2fc-3a89-4ddf-ad12-6de4b24f2400",
+    "id": "1d322e7d-f51b-4507-b56b-da25373ecc6e",
     "version": "1.0.0.0",
     "includeClientSideAssets": true,
     "isDomainIsolated": false,
@@ -17,7 +17,7 @@
       "websiteUrl": "",
       "privacyUrl": "",
       "termsOfUseUrl": "",
-      "mpnId": "Undefined-1.13.0"
+      "mpnId": "Undefined-1.13.1"
     }
   },
   "paths": {
