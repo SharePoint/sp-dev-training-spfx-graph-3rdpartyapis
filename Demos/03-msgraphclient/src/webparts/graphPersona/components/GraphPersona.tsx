@@ -40,7 +40,7 @@ export default class GraphPersona extends React.Component<IGraphPersonaProps, IG
           phone: user.businessPhones[0]
         });
       });
-
+  
     this.props.graphClient
       .api('/me/photo/$value')
       .responseType('blob')

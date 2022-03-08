@@ -3,9 +3,9 @@
     "plusBeta": false,
     "isCreatingSolution": true,
     "environment": "spo",
-    "version": "1.13.0",
+    "version": "1.13.1",
     "libraryName": "ms-graph-sp-fx",
-    "libraryId": "8f8c0d21-9dd9-484d-8abe-523e12a68cf5",
+    "libraryId": "e6995454-b0d3-42a0-83db-90fe88c17b93",
     "packageManager": "npm",
     "isDomainIsolated": false,
     "componentType": "webpart"
