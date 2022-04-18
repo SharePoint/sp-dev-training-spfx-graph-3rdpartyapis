@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license.
+
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
@@ -6,6 +9,7 @@ import {
   PropertyPaneTextField
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
+import { IReadonlyTheme } from '@microsoft/sp-component-base';
 
 import * as strings from 'SpFxHttpClientWebPartStrings';
 import SpFxHttpClient from './components/SpFxHttpClient';
@@ -22,17 +26,30 @@ export interface ISpFxHttpClientWebPartProps {
 
 export default class SpFxHttpClientWebPart extends BaseClientSideWebPart<ISpFxHttpClientWebPartProps> {
 
+  private _isDarkTheme: boolean = false;
+  private _environmentMessage: string = '';
+
+  protected onInit(): Promise<void> {
+    this._environmentMessage = this._getEnvironmentMessage();
+
+    return super.onInit();
+  }
+
   public render(): void {
     if (!this.renderedOnce) {
       this._getApolloImage()
         .then(response => {
-          const element: React.ReactElement<ISpFxHttpClientProps> = React.createElement(
+          const element: React.ReactElement<ISpFxHttpClientProps > = React.createElement(
             SpFxHttpClient,
             {
-              apolloMissionImage: response.collection.items[0]
+              apolloMissionImage: response.collection.items[0],
+              isDarkTheme: this._isDarkTheme,
+              environmentMessage: this._environmentMessage,
+              hasTeamsContext: !!this.context.sdks.microsoftTeams,
+              userDisplayName: this.context.pageContext.user.displayName
             }
           );
-
+  
           ReactDom.render(element, this.domElement);
         });
     }
@@ -43,12 +60,35 @@ export default class SpFxHttpClientWebPart extends BaseClientSideWebPart<ISpFxHt
       `https://images-api.nasa.gov/search?q=Apollo%204&media_type=image`,
       HttpClient.configurations.v1
     )
-      .then((response: HttpClientResponse) => {
-        return response.json();
-      })
-      .then(jsonResponse => {
-        return jsonResponse;
-      }) as Promise<any>;
+    .then((response: HttpClientResponse) => {
+      return response.json();
+    })
+    .then(jsonResponse => {
+      return jsonResponse;
+    }) as Promise<any>;
+  }
+
+  private _getEnvironmentMessage(): string {
+    if (!!this.context.sdks.microsoftTeams) { // running in Teams
+      return this.context.isServedFromLocalhost ? strings.AppLocalEnvironmentTeams : strings.AppTeamsTabEnvironment;
+    }
+
+    return this.context.isServedFromLocalhost ? strings.AppLocalEnvironmentSharePoint : strings.AppSharePointEnvironment;
+  }
+
+  protected onThemeChanged(currentTheme: IReadonlyTheme | undefined): void {
+    if (!currentTheme) {
+      return;
+    }
+
+    this._isDarkTheme = !!currentTheme.isInverted;
+    const {
+      semanticColors
+    } = currentTheme;
+    this.domElement.style.setProperty('--bodyText', semanticColors.bodyText);
+    this.domElement.style.setProperty('--link', semanticColors.link);
+    this.domElement.style.setProperty('--linkHovered', semanticColors.linkHovered);
+
   }
 
   protected onDispose(): void {

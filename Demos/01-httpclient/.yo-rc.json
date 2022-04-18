@@ -2,11 +2,14 @@
   "@microsoft/generator-sharepoint": {
     "plusBeta": false,
     "isCreatingSolution": true,
-    "environment": "spo",
-    "version": "1.13.1",
+    "version": "1.14.0",
     "libraryName": "sp-fx-http-client",
-    "libraryId": "54e9ad60-5208-4f83-9c6a-854a7d2e5bf7",
+    "libraryId": "77e2ec85-fbf0-426d-9190-4d5bfc7fc982",
+    "environment": "spo",
     "packageManager": "npm",
+    "solutionName": "SPFxHttpClient",
+    "solutionShortDescription": "SPFxHttpClient description",
+    "skipFeatureDeployment": true,
     "isDomainIsolated": false,
     "componentType": "webpart"
   }

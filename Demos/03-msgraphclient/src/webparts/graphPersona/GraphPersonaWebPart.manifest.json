@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
-  "id": "987b1dee-967a-468f-849d-380ff276cf6d",
+  "id": "3a0fcbb5-fd6c-4304-bf7b-d3c404415254",
   "alias": "GraphPersonaWebPart",
   "componentType": "WebPart",
 
@@ -19,7 +19,7 @@
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
     "group": { "default": "Other" },
     "title": { "default": "GraphPersona" },
-    "description": { "default": "Display current user&#39;s persona details in a Fabric React Persona card" },
+    "description": { "default": "GraphPersona description" },
     "officeFabricIconFontName": "Page",
     "properties": {
       "description": "GraphPersona"
