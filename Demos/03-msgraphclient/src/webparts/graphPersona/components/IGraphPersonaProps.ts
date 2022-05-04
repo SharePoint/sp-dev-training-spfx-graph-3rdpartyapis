@@ -5,4 +5,8 @@ import { MSGraphClient } from '@microsoft/sp-http';
 
 export interface IGraphPersonaProps {
   graphClient: MSGraphClient;
+  isDarkTheme: boolean;
+  environmentMessage: string;
+  hasTeamsContext: boolean;
+  userDisplayName: string;
 }

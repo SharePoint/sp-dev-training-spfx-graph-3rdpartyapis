@@ -8,32 +8,36 @@ import { escape } from '@microsoft/sp-lodash-subset';
 
 export default class SpFxAadHttpClient extends React.Component<ISpFxAadHttpClientProps, {}> {
   public render(): React.ReactElement<ISpFxAadHttpClientProps> {
+    const {
+      userItems,
+      isDarkTheme,
+      environmentMessage,
+      hasTeamsContext,
+      userDisplayName
+    } = this.props;
+
     return (
-      <div className={styles.spFxAadHttpClient}>
-        <div className={styles.container}>
-          <div className={styles.row}>
-            <div className={styles.column}>
-              <span className={styles.title}>AadHttpClient Demo</span>
-            </div>
-          </div>
-
-          <div className={styles.row}>
-            <div><strong>Mail:</strong></div>
-            <ul className={styles.list}>
-              {this.props.userItems &&
-                this.props.userItems.map((user) =>
-                  <li key={user.id} className={styles.item}>
-                    <strong>ID:</strong> {user.id}<br />
-                    <strong>Email:</strong> {user.mail}<br />
-                    <strong>DisplayName:</strong> {user.displayName}
-                  </li>
-                )
-              }
-            </ul>
-          </div>
-
+      <section className={`${styles.spFxAadHttpClient} ${hasTeamsContext ? styles.teams : ''}`}>
+        <div className={styles.welcome}>
+          <img alt="" src={isDarkTheme ? require('../assets/welcome-dark.png') : require('../assets/welcome-light.png')} className={styles.welcomeImage} />
+          <h2>Well done, {escape(userDisplayName)}!</h2>
+          <div>{environmentMessage}</div>
         </div>
-      </div>
+        <div className={styles.mail}>
+          <div><strong>Mail:</strong></div>
+          <ul>
+            {this.props.userItems &&
+              this.props.userItems.map((user) =>
+                <li key={user.id}>
+                  <strong>ID:</strong> {user.id}<br />
+                  <strong>Email:</strong> {user.mail}<br />
+                  <strong>DisplayName:</strong> {user.displayName}
+                </li>
+              )
+            }
+          </ul>
+        </div>
+      </section>
     );
   }
 }
