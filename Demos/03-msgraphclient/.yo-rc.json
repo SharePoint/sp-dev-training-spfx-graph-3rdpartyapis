@@ -2,9 +2,9 @@
   "@microsoft/generator-sharepoint": {
     "plusBeta": false,
     "isCreatingSolution": true,
-    "version": "1.14.0",
+    "version": "1.15.2",
     "libraryName": "ms-graph-sp-fx",
-    "libraryId": "e1d40647-1adb-4ed2-96a8-4b49596b8c4c",
+    "libraryId": "e7dd1d00-388f-4cbc-b884-2e7d28bca3ae",
     "environment": "spo",
     "packageManager": "npm",
     "solutionName": "MSGraphSPFx",

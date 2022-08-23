@@ -15,7 +15,7 @@ import * as strings from 'GraphPersonaWebPartStrings';
 import GraphPersona from './components/GraphPersona';
 import { IGraphPersonaProps } from './components/IGraphPersonaProps';
 
-import { MSGraphClient } from '@microsoft/sp-http';
+import { MSGraphClientV3 } from '@microsoft/sp-http';
 
 export interface IGraphPersonaWebPartProps {
   description: string;
@@ -26,28 +26,37 @@ export default class GraphPersonaWebPart extends BaseClientSideWebPart<IGraphPer
   private _isDarkTheme: boolean = false;
   private _environmentMessage: string = '';
 
+  protected get isRenderAsync(): boolean {
+    return true;
+  }
+
+  public async render(): Promise<void> {
+    const client: MSGraphClientV3 = await this.context.msGraphClientFactory.getClient('3');
+
+    const element: React.ReactElement<IGraphPersonaProps> = React.createElement(
+      GraphPersona,
+      {
+        graphClient: client,
+        isDarkTheme: this._isDarkTheme,
+        environmentMessage: this._environmentMessage,
+        hasTeamsContext: !!this.context.sdks.microsoftTeams,
+        userDisplayName: this.context.pageContext.user.displayName
+      }
+    );
+
+    ReactDom.render(element, this.domElement);
+
+    this.renderCompleted();
+  }
+
+  protected renderCompleted(): void {
+    super.renderCompleted();
+  }
+
   protected onInit(): Promise<void> {
     this._environmentMessage = this._getEnvironmentMessage();
 
     return super.onInit();
-  }
-
-  public render(): void {
-    this.context.msGraphClientFactory.getClient()
-      .then((client: MSGraphClient): void => {
-        const element: React.ReactElement<IGraphPersonaProps> = React.createElement(
-          GraphPersona,
-          {
-            graphClient: client,
-            isDarkTheme: this._isDarkTheme,
-            environmentMessage: this._environmentMessage,
-            hasTeamsContext: !!this.context.sdks.microsoftTeams,
-            userDisplayName: this.context.pageContext.user.displayName
-          }
-        );
-
-        ReactDom.render(element, this.domElement);
-      });
   }
 
   private _getEnvironmentMessage(): string {
@@ -67,9 +76,12 @@ export default class GraphPersonaWebPart extends BaseClientSideWebPart<IGraphPer
     const {
       semanticColors
     } = currentTheme;
-    this.domElement.style.setProperty('--bodyText', semanticColors.bodyText);
-    this.domElement.style.setProperty('--link', semanticColors.link);
-    this.domElement.style.setProperty('--linkHovered', semanticColors.linkHovered);
+
+    if (semanticColors) {
+      this.domElement.style.setProperty('--bodyText', semanticColors.bodyText || null);
+      this.domElement.style.setProperty('--link', semanticColors.link || null);
+      this.domElement.style.setProperty('--linkHovered', semanticColors.linkHovered || null);
+    }
 
   }
 

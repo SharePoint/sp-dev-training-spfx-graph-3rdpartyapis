@@ -26,14 +26,13 @@ export default class SpFxAadHttpClient extends React.Component<ISpFxAadHttpClien
         <div className={styles.mail}>
           <div><strong>Mail:</strong></div>
           <ul>
-            {this.props.userItems &&
-              this.props.userItems.map((user) =>
-                <li key={user.id}>
-                  <strong>ID:</strong> {user.id}<br />
-                  <strong>Email:</strong> {user.mail}<br />
-                  <strong>DisplayName:</strong> {user.displayName}
-                </li>
-              )
+            {userItems && userItems.map((user) =>
+              <li key={user.id}>
+                <strong>ID:</strong> {user.id}<br />
+                <strong>Email:</strong> {user.mail}<br />
+                <strong>DisplayName:</strong> {user.displayName}
+              </li>
+            )
             }
           </ul>
         </div>

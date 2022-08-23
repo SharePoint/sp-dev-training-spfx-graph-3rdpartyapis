@@ -30,47 +30,55 @@ export default class SpFxAadHttpClientWebPart extends BaseClientSideWebPart<ISpF
   private _isDarkTheme: boolean = false;
   private _environmentMessage: string = '';
 
+  protected get isRenderAsync(): boolean {
+    return true;
+  }
+
+  public async render(): Promise<void> {
+    if (!this.renderedOnce) {
+      const results: IUserItem[] = await this._getUsers();
+
+      const element: React.ReactElement<ISpFxAadHttpClientProps> = React.createElement(
+        SpFxAadHttpClient,
+        {
+          userItems: results,
+          isDarkTheme: this._isDarkTheme,
+          environmentMessage: this._environmentMessage,
+          hasTeamsContext: !!this.context.sdks.microsoftTeams,
+          userDisplayName: this.context.pageContext.user.displayName
+        }
+      );
+
+      ReactDom.render(element, this.domElement);
+    }
+
+    this.renderCompleted();
+  }
+
+  protected renderCompleted(): void {
+    super.renderCompleted();
+  }
+
+  private async _getUsers(): Promise<IUserItem[]> {
+    const aadClient: AadHttpClient = await this.context.aadHttpClientFactory
+      .getClient('https://graph.microsoft.com');
+
+    const endpoint: string = 'https://graph.microsoft.com/v1.0/users?$top=10&$select=id,displayName,mail';
+    const response: HttpClientResponse = await aadClient.get(endpoint, AadHttpClient.configurations.v1);
+
+    if (!response.ok) {
+      const responseText = await response.text();
+      throw new Error(responseText);
+    }
+
+    const responseJson = await response.json();
+    return responseJson.value as IUserItem[];
+  }
+
   protected onInit(): Promise<void> {
     this._environmentMessage = this._getEnvironmentMessage();
 
     return super.onInit();
-  }
-
-  public render(): void {
-    if (!this.renderedOnce) {
-      this._getUsers()
-        .then((results: IUserItem[]) => {
-          const element: React.ReactElement<ISpFxAadHttpClientProps> = React.createElement(
-            SpFxAadHttpClient,
-            {
-              userItems: results,
-              isDarkTheme: this._isDarkTheme,
-              environmentMessage: this._environmentMessage,
-              hasTeamsContext: !!this.context.sdks.microsoftTeams,
-              userDisplayName: this.context.pageContext.user.displayName
-            }
-          );
-
-          ReactDom.render(element, this.domElement);
-        });
-    }
-  }
-
-  private _getUsers(): Promise<IUserItem[]> {
-    return new Promise<IUserItem[]>((resolve, reject) => {
-      this.context.aadHttpClientFactory
-        .getClient('https://graph.microsoft.com')
-        .then((aadClient: AadHttpClient) => {
-          const endpoint: string = 'https://graph.microsoft.com/v1.0/users?$top=10&$select=id,displayName,mail';
-          aadClient.get(endpoint, AadHttpClient.configurations.v1)
-            .then((rawResponse: HttpClientResponse) => {
-              return rawResponse.json();
-            })
-            .then((jsonResponse: any) => {
-              resolve(jsonResponse.value);
-            });
-        });
-    });
   }
 
   private _getEnvironmentMessage(): string {
@@ -90,9 +98,12 @@ export default class SpFxAadHttpClientWebPart extends BaseClientSideWebPart<ISpF
     const {
       semanticColors
     } = currentTheme;
-    this.domElement.style.setProperty('--bodyText', semanticColors.bodyText);
-    this.domElement.style.setProperty('--link', semanticColors.link);
-    this.domElement.style.setProperty('--linkHovered', semanticColors.linkHovered);
+
+    if (semanticColors) {
+      this.domElement.style.setProperty('--bodyText', semanticColors.bodyText || null);
+      this.domElement.style.setProperty('--link', semanticColors.link || null);
+      this.domElement.style.setProperty('--linkHovered', semanticColors.linkHovered || null);
+    }
 
   }
 

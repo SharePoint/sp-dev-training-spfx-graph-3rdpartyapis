@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
     "name": "sp-fx-aad-http-client-client-side-solution",
-    "id": "7a5aaa71-77ff-43e9-adbf-cbfb71e617af",
+    "id": "3165c897-3ca6-4224-87fc-f98ccbd9bed8",
     "version": "1.0.0.0",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
@@ -18,7 +18,7 @@
       "websiteUrl": "",
       "privacyUrl": "",
       "termsOfUseUrl": "",
-      "mpnId": "Undefined-1.14.0"
+      "mpnId": "Undefined-1.15.2"
     },
     "metadata": {
       "shortDescription": {
@@ -35,7 +35,7 @@
       {
         "title": "sp-fx-aad-http-client Feature",
         "description": "The feature that activates elements of the sp-fx-aad-http-client solution.",
-        "id": "e8692a25-d732-45da-b6f8-0009d78580a5",
+        "id": "bc7492b8-5b10-4824-b2c1-4d7e2aec56f9",
         "version": "1.0.0.0"
       }
     ]
