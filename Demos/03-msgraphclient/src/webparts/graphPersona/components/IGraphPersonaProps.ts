@@ -1,10 +1,10 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT license.
 
-import { MSGraphClient } from '@microsoft/sp-http';
+import { MSGraphClientV3 } from '@microsoft/sp-http';
 
 export interface IGraphPersonaProps {
-  graphClient: MSGraphClient;
+  graphClient: MSGraphClientV3;
   isDarkTheme: boolean;
   environmentMessage: string;
   hasTeamsContext: boolean;

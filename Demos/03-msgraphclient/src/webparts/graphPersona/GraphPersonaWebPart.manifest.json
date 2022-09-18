@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
-  "id": "3a0fcbb5-fd6c-4304-bf7b-d3c404415254",
+  "id": "19a52bbe-847d-42e0-8266-3bb0893882d7",
   "alias": "GraphPersonaWebPart",
   "componentType": "WebPart",
 
@@ -16,8 +16,8 @@
   "supportsThemeVariants": true,
 
   "preconfiguredEntries": [{
-    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
-    "group": { "default": "Other" },
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
+    "group": { "default": "Advanced" },
     "title": { "default": "GraphPersona" },
     "description": { "default": "GraphPersona description" },
     "officeFabricIconFontName": "Page",

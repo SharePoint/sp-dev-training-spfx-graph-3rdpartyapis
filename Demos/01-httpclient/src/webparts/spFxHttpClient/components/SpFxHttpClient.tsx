@@ -12,13 +12,13 @@ export default class SpFxHttpClient extends React.Component<ISpFxHttpClientProps
       <section className={`${styles.spFxHttpClient} ${this.props.hasTeamsContext ? styles.teams : ''}`}>
         <div>
           <img src={this.props.apolloMissionImage.links[0].href} />
-          <div><strong>Title:</strong> {this.props.apolloMissionImage.data[0].title}</div>
+          <div><strong>Title:</strong> {escape(this.props.apolloMissionImage.data[0].title)}</div>
           <div><strong>Keywords:</strong></div>
           <ul>
             {this.props.apolloMissionImage &&
-              this.props.apolloMissionImage.data[0].keywords.map((keyword) =>
+              this.props.apolloMissionImage.data[0].keywords.map((keyword: string) =>
                 <li key={keyword}>
-                  {keyword}
+                  {escape(keyword)}
                 </li>
               )
             }

@@ -2,9 +2,9 @@
   "@microsoft/generator-sharepoint": {
     "plusBeta": false,
     "isCreatingSolution": true,
-    "version": "1.14.0",
+    "version": "1.15.2",
     "libraryName": "sp-fx-aad-http-client",
-    "libraryId": "7a5aaa71-77ff-43e9-adbf-cbfb71e617af",
+    "libraryId": "3165c897-3ca6-4224-87fc-f98ccbd9bed8",
     "environment": "spo",
     "packageManager": "npm",
     "solutionName": "SPFxAadHttpClient",
