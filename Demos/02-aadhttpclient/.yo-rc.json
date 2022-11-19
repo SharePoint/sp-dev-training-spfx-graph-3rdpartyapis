@@ -4,7 +4,7 @@
     "isCreatingSolution": true,
     "version": "1.15.2",
     "libraryName": "sp-fx-aad-http-client",
-    "libraryId": "3165c897-3ca6-4224-87fc-f98ccbd9bed8",
+    "libraryId": "e7ea2958-7f9e-4081-a5f4-d40df1ee9b48",
     "environment": "spo",
     "packageManager": "npm",
     "solutionName": "SPFxAadHttpClient",

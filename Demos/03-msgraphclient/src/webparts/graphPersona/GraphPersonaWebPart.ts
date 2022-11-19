@@ -29,10 +29,10 @@ export default class GraphPersonaWebPart extends BaseClientSideWebPart<IGraphPer
   protected get isRenderAsync(): boolean {
     return true;
   }
-
+  
   public async render(): Promise<void> {
     const client: MSGraphClientV3 = await this.context.msGraphClientFactory.getClient('3');
-
+  
     const element: React.ReactElement<IGraphPersonaProps> = React.createElement(
       GraphPersona,
       {
@@ -43,12 +43,12 @@ export default class GraphPersonaWebPart extends BaseClientSideWebPart<IGraphPer
         userDisplayName: this.context.pageContext.user.displayName
       }
     );
-
+  
     ReactDom.render(element, this.domElement);
-
+  
     this.renderCompleted();
   }
-
+  
   protected renderCompleted(): void {
     super.renderCompleted();
   }

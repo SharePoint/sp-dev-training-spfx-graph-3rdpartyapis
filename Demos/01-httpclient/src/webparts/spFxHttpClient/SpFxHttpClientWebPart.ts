@@ -34,11 +34,11 @@ export default class SpFxHttpClientWebPart extends BaseClientSideWebPart<ISpFxHt
   protected get isRenderAsync(): boolean {
     return true;
   }
-
+  
   public async render(): Promise<void> {
     if (!this.renderedOnce) {
       const response: INasaImageSearchResponse = await this._getApolloImage();
-
+  
       const element: React.ReactElement<ISpFxHttpClientProps> = React.createElement(
         SpFxHttpClient,
         {
@@ -49,13 +49,13 @@ export default class SpFxHttpClientWebPart extends BaseClientSideWebPart<ISpFxHt
           userDisplayName: this.context.pageContext.user.displayName
         }
       );
-
+  
       ReactDom.render(element, this.domElement);
     }
-
+  
     this.renderCompleted();
   }
-
+  
   protected renderCompleted(): void {
     super.renderCompleted();
   }
@@ -65,12 +65,12 @@ export default class SpFxHttpClientWebPart extends BaseClientSideWebPart<ISpFxHt
       `https://images-api.nasa.gov/search?q=Apollo%204&media_type=image`,
       HttpClient.configurations.v1
     );
-
+  
     if (!response.ok) {
       const responseText = await response.text();
       throw new Error(responseText);
     }
-
+  
     const responseJson = await response.json();
     return responseJson as INasaImageSearchResponse;
   }

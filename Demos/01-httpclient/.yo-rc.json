@@ -4,7 +4,7 @@
     "isCreatingSolution": true,
     "version": "1.15.2",
     "libraryName": "sp-fx-http-client",
-    "libraryId": "ed60d6dc-e54b-4fee-8d93-c02756c363cf",
+    "libraryId": "145a98f3-500b-40e5-83d1-2f90123e960d",
     "environment": "spo",
     "packageManager": "npm",
     "solutionName": "SPFxHttpClient",

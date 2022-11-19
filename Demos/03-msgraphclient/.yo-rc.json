@@ -4,7 +4,7 @@
     "isCreatingSolution": true,
     "version": "1.15.2",
     "libraryName": "ms-graph-sp-fx",
-    "libraryId": "e7dd1d00-388f-4cbc-b884-2e7d28bca3ae",
+    "libraryId": "20c5051a-9dba-444b-9166-98e15cae4de1",
     "environment": "spo",
     "packageManager": "npm",
     "solutionName": "MSGraphSPFx",
