@@ -30,6 +30,28 @@ export default class GraphPersona extends React.Component<IGraphPersonaProps, IG
     };
   }
 
+  public componentDidMount(): void {
+    /* eslint-disable @typescript-eslint/no-floating-promises */
+    this.props.graphClient
+      .api('me')
+      .get((error: GraphError, user: MicrosoftGraph.User) => {
+        this.setState({
+          name: user.displayName,
+          email: user.mail,
+          phone: user.businessPhones[0]
+        });
+      });
+
+    this.props.graphClient
+      .api('/me/photo/$value')
+      .responseType(ResponseType.BLOB)
+      .get((error: GraphError, photoResponse: Blob) => {
+        const blobUrl = window.URL.createObjectURL(photoResponse);
+        this.setState({ image: blobUrl });
+      });
+    /* eslint-enable @typescript-eslint/no-floating-promises */
+  }
+
   public render(): React.ReactElement<IGraphPersonaProps> {
     return (
       <Persona primaryText={this.state.name}
@@ -56,27 +78,5 @@ export default class GraphPersona extends React.Component<IGraphPersonaProps, IG
     } else {
       return <div />;
     }
-  }
-
-  public componentDidMount(): void {
-    /* eslint-disable @typescript-eslint/no-floating-promises */
-    this.props.graphClient
-      .api('me')
-      .get((error: GraphError, user: MicrosoftGraph.User) => {
-        this.setState({
-          name: user.displayName,
-          email: user.mail,
-          phone: user.businessPhones[0]
-        });
-      });
-
-    this.props.graphClient
-      .api('/me/photo/$value')
-      .responseType(ResponseType.BLOB)
-      .get((error: GraphError, photoResponse: Blob) => {
-        const blobUrl = window.URL.createObjectURL(photoResponse);
-        this.setState({ image: blobUrl });
-      });
-    /* eslint-enable @typescript-eslint/no-floating-promises */
   }
 }
