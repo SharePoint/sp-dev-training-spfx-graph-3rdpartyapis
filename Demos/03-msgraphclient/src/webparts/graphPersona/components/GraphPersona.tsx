@@ -1,10 +1,7 @@
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT license.
-
 import * as React from 'react';
-import styles from './GraphPersona.module.scss';
+// import styles from './GraphPersona.module.scss';
 import { IGraphPersonaProps } from './IGraphPersonaProps';
-import { escape } from '@microsoft/sp-lodash-subset';
+// import { escape } from '@microsoft/sp-lodash-subset';
 
 import { IGraphPersonaState } from './IGraphPersonaState';
 
@@ -19,6 +16,7 @@ import {
 import { Link } from 'office-ui-fabric-react/lib/components/Link';
 
 export default class GraphPersona extends React.Component<IGraphPersonaProps, IGraphPersonaState> {
+
   constructor(props: IGraphPersonaProps) {
     super(props);
 
@@ -28,28 +26,6 @@ export default class GraphPersona extends React.Component<IGraphPersonaProps, IG
       phone: '',
       image: null
     };
-  }
-
-  public componentDidMount(): void {
-    /* eslint-disable @typescript-eslint/no-floating-promises */
-    this.props.graphClient
-      .api('me')
-      .get((error: GraphError, user: MicrosoftGraph.User) => {
-        this.setState({
-          name: user.displayName,
-          email: user.mail,
-          phone: user.businessPhones[0]
-        });
-      });
-
-    this.props.graphClient
-      .api('/me/photo/$value')
-      .responseType(ResponseType.BLOB)
-      .get((error: GraphError, photoResponse: Blob) => {
-        const blobUrl = window.URL.createObjectURL(photoResponse);
-        this.setState({ image: blobUrl });
-      });
-    /* eslint-enable @typescript-eslint/no-floating-promises */
   }
 
   public render(): React.ReactElement<IGraphPersonaProps> {
@@ -79,4 +55,27 @@ export default class GraphPersona extends React.Component<IGraphPersonaProps, IG
       return <div />;
     }
   }
+
+  public componentDidMount(): void {
+    /* eslint-disable @typescript-eslint/no-floating-promises */
+    this.props.graphClient
+      .api('me')
+      .get((error: GraphError, user: MicrosoftGraph.User) => {
+        this.setState({
+          name: user.displayName,
+          email: user.mail,
+          phone: user.businessPhones[0]
+        });
+      });
+
+    this.props.graphClient
+      .api('/me/photo/$value')
+      .responseType(ResponseType.BLOB)
+      .get((error: GraphError, photoResponse: Blob) => {
+        const blobUrl = window.URL.createObjectURL(photoResponse);
+        this.setState({ image: blobUrl });
+      });
+    /* eslint-enable @typescript-eslint/no-floating-promises */
+  }
+
 }

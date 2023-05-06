@@ -2,21 +2,21 @@
 
 This module will introduce you to utilizing external APIs in your SharePoint Framework projects.
 
-> This module is also published as a Microsoft Learn module: [Leverage Microsoft Graph & third-party APIs](https://docs.microsoft.com/learn/modules/sharepoint-spfx-graph-3rd-party-apis)
+> This module is also published as a Microsoft Learn module: [Leverage Microsoft Graph & third-party APIs](https://learn.microsoft.com/training/modules/sharepoint-spfx-graph-3rd-party-apis)
 
 ## Lab - Leverage Microsoft Graph & third-party APIs
 
 The lab for this module is available in multiple units within the associated Microsoft Learn module. Use the following links to jump to the specific unit. Each Microsoft Learn unit represents a different lab exercise & demo in the presentation.
 
-- [Exercise - Call anonymous third-party REST APIs](https://docs.microsoft.com/learn/modules/sharepoint-spfx-graph-3rd-party-apis/3-exercise-anonymous-apis)
+- [Exercise - Call anonymous third-party REST APIs](https://learn.microsoft.com/training/modules/sharepoint-spfx-graph-3rd-party-apis/3-exercise-anonymous-apis)
 
   In this exercise, you'll create a new SharePoint Framework project with a single client-side web part that uses React to display the results from a call to an anonymous third-party API: the NASA Image REST API.
 
-- [Exercise - Call Azure AD secured REST APIs](https://docs.microsoft.com/learn/modules/sharepoint-spfx-graph-3rd-party-apis/5-exercise-azure-ad-apis)
+- [Exercise - Call Azure AD secured REST APIs](https://learn.microsoft.com/training/modules/sharepoint-spfx-graph-3rd-party-apis/5-exercise-azure-ad-apis)
 
   In this exercise, you'll create a new SharePoint Framework project with a single client-side web part that uses React and Microsoft Graph to display users in the currently logged in user's directory. You'll use the Azure AD HTTP client API included in the SharePoint Framework to authenticate and call the Microsoft Graph REST API.
 
-- [Exercise - Call Microsoft Graph from SharePoint Framework components](https://docs.microsoft.com/learn/modules/sharepoint-spfx-graph-3rd-party-apis/7-exercise-graph-api)
+- [Exercise - Call Microsoft Graph from SharePoint Framework components](https://learn.microsoft.com/training/modules/sharepoint-spfx-graph-3rd-party-apis/7-exercise-graph-api)
 
   In this exercise, you'll create a new SharePoint Framework project with a single client-side web part that uses React and Microsoft Graph to display the currently logged in user's personal details in a familiar office Persona card.
 
@@ -42,7 +42,13 @@ This module has been recorded and is available in the SharePoint Development You
 
 | Version |        Date        |                      Comments                      |
 | ------- | ------------------ | -------------------------------------------------- |
+<<<<<<< Updated upstream
 | 1.15    | December 5, 2022   | FY2023Q1 content refresh                           |
+=======
+| 1.17    | May 5, 2023        | FY2023Q4 content refresh; update to SPFx v1.17.1   |
+| 1.16    | February 27, 2023  | FY2023Q3 content refresh; update to SPFx v1.16.1   |
+| 1.15    | December 5, 2022   | FY2023Q2 content refresh                           |
+>>>>>>> Stashed changes
 | 1.14    | September 5, 2022  | FY2023Q1 content refresh; update to SPFx v1.15.2   |
 | 1.13    | May 2, 2022        | FY2022Q4 content refresh; update to SPFx v1.14     |
 | 1.12    | March 7, 2022      | FY2022Q3 content refresh                           |
