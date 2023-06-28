@@ -1,6 +1,3 @@
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT license.
-
 import { MSGraphClientV3 } from '@microsoft/sp-http';
 
 export interface IGraphPersonaProps {
