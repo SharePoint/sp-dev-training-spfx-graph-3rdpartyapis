@@ -10,6 +10,7 @@ declare interface ISpFxHttpClientWebPartStrings {
   AppTeamsTabEnvironment: string;
   AppOfficeEnvironment: string;
   AppOutlookEnvironment: string;
+  UnknownEnvironment: string;
 }
 
 declare module 'SpFxHttpClientWebPartStrings' {

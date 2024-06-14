@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
-  IPropertyPaneConfiguration,
+  type IPropertyPaneConfiguration,
   PropertyPaneTextField
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
@@ -63,7 +63,20 @@ export default class SpFxHttpClientWebPart extends BaseClientSideWebPart<ISpFxHt
     });
   }
 
+  private async _getApolloImage(): Promise<INasaImageSearchResponse> {
+    const response: HttpClientResponse = await this.context.httpClient.get(
+      `https://images-api.nasa.gov/search?q=Apollo%204&media_type=image`,
+      HttpClient.configurations.v1
+    );
 
+    if (!response.ok) {
+      const responseText = await response.text();
+      throw new Error(responseText);
+    }
+
+    const responseJson = await response.json();
+    return responseJson as INasaImageSearchResponse;
+  }
 
   private _getEnvironmentMessage(): Promise<string> {
     if (!!this.context.sdks.microsoftTeams) { // running in Teams, office.com or Outlook
@@ -78,10 +91,11 @@ export default class SpFxHttpClientWebPart extends BaseClientSideWebPart<ISpFxHt
               environmentMessage = this.context.isServedFromLocalhost ? strings.AppLocalEnvironmentOutlook : strings.AppOutlookEnvironment;
               break;
             case 'Teams': // running in Teams
+            case 'TeamsModern':
               environmentMessage = this.context.isServedFromLocalhost ? strings.AppLocalEnvironmentTeams : strings.AppTeamsTabEnvironment;
               break;
             default:
-              throw new Error('Unknown host');
+              environmentMessage = strings.UnknownEnvironment;
           }
 
           return environmentMessage;
@@ -138,20 +152,4 @@ export default class SpFxHttpClientWebPart extends BaseClientSideWebPart<ISpFxHt
       ]
     };
   }
-
-  private async _getApolloImage(): Promise<INasaImageSearchResponse> {
-    const response: HttpClientResponse = await this.context.httpClient.get(
-      `https://images-api.nasa.gov/search?q=Apollo%204&media_type=image`,
-      HttpClient.configurations.v1
-    );
-
-    if (!response.ok) {
-      const responseText = await response.text();
-      throw new Error(responseText);
-    }
-
-    const responseJson = await response.json();
-    return responseJson as INasaImageSearchResponse;
-  }
-
 }

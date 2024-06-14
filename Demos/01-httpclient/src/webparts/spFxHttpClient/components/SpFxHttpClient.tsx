@@ -1,10 +1,9 @@
 import * as React from 'react';
 import styles from './SpFxHttpClient.module.scss';
-import { ISpFxHttpClientProps } from './ISpFxHttpClientProps';
+import type { ISpFxHttpClientProps } from './ISpFxHttpClientProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 
 export default class SpFxHttpClient extends React.Component<ISpFxHttpClientProps, {}> {
-
   public render(): React.ReactElement<ISpFxHttpClientProps> {
     return (
       <section className={`${styles.spFxHttpClient} ${this.props.hasTeamsContext ? styles.teams : ''}`}>
@@ -25,5 +24,4 @@ export default class SpFxHttpClient extends React.Component<ISpFxHttpClientProps
       </section>
     );
   }
-
 }

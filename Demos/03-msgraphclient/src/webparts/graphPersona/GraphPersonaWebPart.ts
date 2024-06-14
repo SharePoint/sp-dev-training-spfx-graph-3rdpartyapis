@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
-  IPropertyPaneConfiguration,
+  type IPropertyPaneConfiguration,
   PropertyPaneTextField
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
@@ -13,6 +13,7 @@ import GraphPersona from './components/GraphPersona';
 import { IGraphPersonaProps } from './components/IGraphPersonaProps';
 
 import { MSGraphClientV3 } from '@microsoft/sp-http';
+
 export interface IGraphPersonaWebPartProps {
   description: string;
 }
@@ -70,10 +71,11 @@ export default class GraphPersonaWebPart extends BaseClientSideWebPart<IGraphPer
               environmentMessage = this.context.isServedFromLocalhost ? strings.AppLocalEnvironmentOutlook : strings.AppOutlookEnvironment;
               break;
             case 'Teams': // running in Teams
+            case 'TeamsModern':
               environmentMessage = this.context.isServedFromLocalhost ? strings.AppLocalEnvironmentTeams : strings.AppTeamsTabEnvironment;
               break;
             default:
-              throw new Error('Unknown host');
+              environmentMessage = strings.UnknownEnvironment;
           }
 
           return environmentMessage;
