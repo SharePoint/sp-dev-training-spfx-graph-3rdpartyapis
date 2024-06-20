@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styles from './SpFxAadHttpClient.module.scss';
-import { ISpFxAadHttpClientProps } from './ISpFxAadHttpClientProps';
+import type { ISpFxAadHttpClientProps } from './ISpFxAadHttpClientProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 
 export default class SpFxAadHttpClient extends React.Component<ISpFxAadHttpClientProps, {}> {
@@ -24,12 +24,12 @@ export default class SpFxAadHttpClient extends React.Component<ISpFxAadHttpClien
           <div><strong>Mail:</strong></div>
           <ul>
             {userItems && userItems.map((user) =>
-              <li key={user.id}>
-                <strong>ID:</strong> {user.id}<br />
-                <strong>Email:</strong> {user.mail}<br />
-                <strong>DisplayName:</strong> {user.displayName}
-              </li>
-            )
+                <li key={user.id}>
+                  <strong>ID:</strong> {user.id}<br />
+                  <strong>Email:</strong> {user.mail}<br />
+                  <strong>DisplayName:</strong> {user.displayName}
+                </li>
+              )
             }
           </ul>
         </div>

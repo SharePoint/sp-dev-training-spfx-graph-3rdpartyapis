@@ -1,7 +1,5 @@
 import * as React from 'react';
-// import styles from './GraphPersona.module.scss';
-import { IGraphPersonaProps } from './IGraphPersonaProps';
-// import { escape } from '@microsoft/sp-lodash-subset';
+import type { IGraphPersonaProps } from './IGraphPersonaProps';
 
 import { IGraphPersonaState } from './IGraphPersonaState';
 
@@ -31,12 +29,12 @@ export default class GraphPersona extends React.Component<IGraphPersonaProps, IG
   public render(): React.ReactElement<IGraphPersonaProps> {
     return (
       <Persona primaryText={this.state.name}
-        secondaryText={this.state.email}
-        onRenderSecondaryText={this._renderMail}
-        tertiaryText={this.state.phone}
-        onRenderTertiaryText={this._renderPhone}
-        imageUrl={this.state.image}
-        size={PersonaSize.size100} />
+               secondaryText={this.state.email}
+               onRenderSecondaryText={this._renderMail}
+               tertiaryText={this.state.phone}
+               onRenderTertiaryText={this._renderPhone}
+               imageUrl={this.state.image}
+               size={PersonaSize.size100} />
     );
   }
 

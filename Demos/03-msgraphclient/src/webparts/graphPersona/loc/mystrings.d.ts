@@ -10,6 +10,7 @@ declare interface IGraphPersonaWebPartStrings {
   AppTeamsTabEnvironment: string;
   AppOfficeEnvironment: string;
   AppOutlookEnvironment: string;
+  UnknownEnvironment: string;
 }
 
 declare module 'GraphPersonaWebPartStrings' {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
-  IPropertyPaneConfiguration,
+  type IPropertyPaneConfiguration,
   PropertyPaneTextField
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
@@ -56,14 +56,27 @@ export default class SpFxAadHttpClientWebPart extends BaseClientSideWebPart<ISpF
     super.renderCompleted();
   }
 
-
   protected onInit(): Promise<void> {
     return this._getEnvironmentMessage().then(message => {
       this._environmentMessage = message;
     });
   }
 
+  private async _getUsers(): Promise<IUserItem[]> {
+    const aadClient: AadHttpClient = await this.context.aadHttpClientFactory
+      .getClient('https://graph.microsoft.com');
 
+    const endpoint: string = 'https://graph.microsoft.com/v1.0/users?$top=10&$select=id,displayName,mail';
+    const response: HttpClientResponse = await aadClient.get(endpoint, AadHttpClient.configurations.v1);
+
+    if (!response.ok) {
+      const responseText = await response.text();
+      throw new Error(responseText);
+    }
+
+    const responseJson = await response.json();
+    return responseJson.value as IUserItem[];
+  }
 
   private _getEnvironmentMessage(): Promise<string> {
     if (!!this.context.sdks.microsoftTeams) { // running in Teams, office.com or Outlook
@@ -78,10 +91,11 @@ export default class SpFxAadHttpClientWebPart extends BaseClientSideWebPart<ISpF
               environmentMessage = this.context.isServedFromLocalhost ? strings.AppLocalEnvironmentOutlook : strings.AppOutlookEnvironment;
               break;
             case 'Teams': // running in Teams
+            case 'TeamsModern':
               environmentMessage = this.context.isServedFromLocalhost ? strings.AppLocalEnvironmentTeams : strings.AppTeamsTabEnvironment;
               break;
             default:
-              throw new Error('Unknown host');
+              environmentMessage = strings.UnknownEnvironment;
           }
 
           return environmentMessage;
@@ -138,21 +152,4 @@ export default class SpFxAadHttpClientWebPart extends BaseClientSideWebPart<ISpF
       ]
     };
   }
-
-  private async _getUsers(): Promise<IUserItem[]> {
-    const aadClient: AadHttpClient = await this.context.aadHttpClientFactory
-      .getClient('https://graph.microsoft.com');
-
-    const endpoint: string = 'https://graph.microsoft.com/v1.0/users?$top=10&$select=id,displayName,mail';
-    const response: HttpClientResponse = await aadClient.get(endpoint, AadHttpClient.configurations.v1);
-
-    if (!response.ok) {
-      const responseText = await response.text();
-      throw new Error(responseText);
-    }
-
-    const responseJson = await response.json();
-    return responseJson.value as IUserItem[];
-  }
-
 }
