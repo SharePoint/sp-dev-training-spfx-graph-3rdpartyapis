@@ -19,6 +19,7 @@ export default class SpFxAadHttpClient extends React.Component<ISpFxAadHttpClien
           <img alt="" src={isDarkTheme ? require('../assets/welcome-dark.png') : require('../assets/welcome-light.png')} className={styles.welcomeImage} />
           <h2>Well done, {escape(userDisplayName)}!</h2>
           <div>{environmentMessage}</div>
+          <div>Web part property value: <strong>{escape(description)}</strong></div>
         </div>
         <div className={styles.mail}>
           <div><strong>Mail:</strong></div>
