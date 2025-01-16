@@ -2,14 +2,14 @@
   "@microsoft/generator-sharepoint": {
     "plusBeta": false,
     "isCreatingSolution": true,
-    "nodeVersion": "18.20.1",
+    "nodeVersion": "18.20.4",
     "sdksVersions": {
       "@microsoft/microsoft-graph-client": "3.0.2",
-      "@microsoft/teams-js": "2.12.0"
+      "@microsoft/teams-js": "2.24.0"
     },
-    "version": "1.19.0",
+    "version": "1.20.0",
     "libraryName": "sp-fx-aad-http-client",
-    "libraryId": "66d509aa-647a-48bd-a8f6-b727091691f7",
+    "libraryId": "66e35303-bdc5-4d83-8b63-16ba8c59c649",
     "environment": "spo",
     "packageManager": "npm",
     "solutionName": "SPFxAadHttpClient",

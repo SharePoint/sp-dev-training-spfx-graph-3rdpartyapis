@@ -1,4 +1,5 @@
 import * as React from 'react';
+import styles from './GraphPersona.module.scss';
 import type { IGraphPersonaProps } from './IGraphPersonaProps';
 
 import { IGraphPersonaState } from './IGraphPersonaState';
@@ -27,6 +28,14 @@ export default class GraphPersona extends React.Component<IGraphPersonaProps, IG
   }
 
   public render(): React.ReactElement<IGraphPersonaProps> {
+    const {
+      description,
+      isDarkTheme,
+      environmentMessage,
+      hasTeamsContext,
+      userDisplayName
+    } = this.props;
+
     return (
       <Persona primaryText={this.state.name}
                secondaryText={this.state.email}
