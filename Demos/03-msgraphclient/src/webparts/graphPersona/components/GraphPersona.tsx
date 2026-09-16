@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styles from './GraphPersona.module.scss';
 import type { IGraphPersonaProps } from './IGraphPersonaProps';
+import { escape } from '@microsoft/sp-lodash-subset';
 
 import { IGraphPersonaState } from './IGraphPersonaState';
 
@@ -8,11 +9,10 @@ import { GraphError, ResponseType } from '@microsoft/microsoft-graph-client';
 import * as MicrosoftGraph from '@microsoft/microsoft-graph-types';
 
 import {
+  Link,
   Persona,
   PersonaSize
-} from 'office-ui-fabric-react/lib/components/Persona';
-
-import { Link } from 'office-ui-fabric-react/lib/components/Link';
+} from '@fluentui/react';
 
 export default class GraphPersona extends React.Component<IGraphPersonaProps, IGraphPersonaState> {
 
@@ -23,27 +23,19 @@ export default class GraphPersona extends React.Component<IGraphPersonaProps, IG
       name: '',
       email: '',
       phone: '',
-      image: null
+      image: undefined
     };
   }
 
   public render(): React.ReactElement<IGraphPersonaProps> {
-    const {
-      description,
-      isDarkTheme,
-      environmentMessage,
-      hasTeamsContext,
-      userDisplayName
-    } = this.props;
-
     return (
       <Persona primaryText={this.state.name}
-               secondaryText={this.state.email}
-               onRenderSecondaryText={this._renderMail}
-               tertiaryText={this.state.phone}
-               onRenderTertiaryText={this._renderPhone}
-               imageUrl={this.state.image}
-               size={PersonaSize.size100} />
+        secondaryText={this.state.email}
+        onRenderSecondaryText={this._renderMail}
+        tertiaryText={this.state.phone}
+        onRenderTertiaryText={this._renderPhone}
+        imageUrl={this.state.image}
+        size={PersonaSize.size100} />
     );
   }
 
@@ -64,25 +56,25 @@ export default class GraphPersona extends React.Component<IGraphPersonaProps, IG
   }
 
   public componentDidMount(): void {
-    /* eslint-disable @typescript-eslint/no-floating-promises */
-    this.props.graphClient
-      .api('me')
-      .get((error: GraphError, user: MicrosoftGraph.User) => {
-        this.setState({
-          name: user.displayName,
-          email: user.mail,
-          phone: user.businessPhones[0]
-        });
+  /* eslint-disable @typescript-eslint/no-floating-promises */
+  this.props.graphClient
+    .api('me')
+    .get((error: GraphError, user: MicrosoftGraph.User) => {
+      this.setState({
+        name: user.displayName ?? '',
+        email: user.mail ?? '',
+        phone: user.businessPhones?.[0] ?? ''
       });
+    });
 
-    this.props.graphClient
-      .api('/me/photo/$value')
-      .responseType(ResponseType.BLOB)
-      .get((error: GraphError, photoResponse: Blob) => {
-        const blobUrl = window.URL.createObjectURL(photoResponse);
-        this.setState({ image: blobUrl });
-      });
-    /* eslint-enable @typescript-eslint/no-floating-promises */
-  }
+  this.props.graphClient
+    .api('/me/photo/$value')
+    .responseType(ResponseType.BLOB)
+    .get((error: GraphError, photoResponse: Blob) => {
+      const blobUrl = window.URL.createObjectURL(photoResponse);
+      this.setState({ image: blobUrl });
+    });
+  /* eslint-enable @typescript-eslint/no-floating-promises */
+}
 
 }

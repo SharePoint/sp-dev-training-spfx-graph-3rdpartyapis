@@ -1,15 +1,13 @@
 {
   "@microsoft/generator-sharepoint": {
+    "useGulp": false,
     "plusBeta": false,
     "isCreatingSolution": true,
-    "nodeVersion": "18.20.4",
-    "sdksVersions": {
-      "@microsoft/microsoft-graph-client": "3.0.2",
-      "@microsoft/teams-js": "2.24.0"
-    },
-    "version": "1.20.0",
+    "nodeVersion": "22.19.0",
+    "sdksVersions": {},
+    "version": "1.23.0",
     "libraryName": "ms-graph-sp-fx",
-    "libraryId": "80cc0416-290c-4eed-ae30-c3f4abc23aca",
+    "libraryId": "4f96e7d8-1535-40c5-b4c1-1949ce62e0e7",
     "environment": "spo",
     "packageManager": "npm",
     "solutionName": "MSGraphSPFx",

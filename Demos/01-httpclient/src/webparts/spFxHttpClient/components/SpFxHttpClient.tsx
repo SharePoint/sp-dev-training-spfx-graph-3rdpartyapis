@@ -1,18 +1,10 @@
 import * as React from 'react';
-import styles from './SpFxHttpClient.module.scss';
 import type { ISpFxHttpClientProps } from './ISpFxHttpClientProps';
+import styles from './SpFxHttpClient.module.scss';
 import { escape } from '@microsoft/sp-lodash-subset';
 
-export default class SpFxHttpClient extends React.Component<ISpFxHttpClientProps, {}> {
+export default class SpFxHttpClient extends React.Component<ISpFxHttpClientProps> {
   public render(): React.ReactElement<ISpFxHttpClientProps> {
-    const {
-      description,
-      isDarkTheme,
-      environmentMessage,
-      hasTeamsContext,
-      userDisplayName
-    } = this.props;
-
     return (
       <section className={`${styles.spFxHttpClient} ${this.props.hasTeamsContext ? styles.teams : ''}`}>
         <div>
